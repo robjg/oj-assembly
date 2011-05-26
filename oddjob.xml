@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<oddjob id="this">
+    <job>
+        <sequential>
+            <jobs>
+                <properties>
+	                <values>
+	                	<value key="global.ojVersion" value="@version@"/>
+                        <file key="global.projDir" file="${this.dir}/.."/>
+                        <value key="global.workDir" value="${this.dir}/work"/>
+	                </values>
+	             </properties>
+                <mkdir dir="${this.dir}/persist"/>
+                <oddjob file="${this.dir}/assemble-oddjob.xml" id="assemble-oddjob" name="Oddjob Assembly">
+                    <descriptorFactory>
+                        <oddballs>
+                            <files>
+                                <file file="${this.dir}/our-ant"/>
+                            </files>
+                        </oddballs>
+                    </descriptorFactory>
+                    <persister>
+                        <file-persister dir="${this.dir}/persist"/>
+                    </persister>
+                </oddjob>
+            </jobs>
+        </sequential>
+    </job>
+</oddjob>

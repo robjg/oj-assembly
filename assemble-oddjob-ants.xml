@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<oddjob id="this">
+    <job>
+        <sequential name="${thisant.target} Ants">
+            <jobs>
+                <bean class="org.oddjob.util.ClassLoaderDiagnostics" className="com.sun.tools.javac.Main" id="find-tools" name="Find tools.jar in Class Path">
+                    <classLoader>
+                        <value value="${arooa-ant.classLoader}"/>
+                    </classLoader>
+                </bean>
+                <check name="Check tools.jar is on Class Path" value="${find-tools.location}"/>
+                <variables id="vars">
+                    <antClassLoader>
+                        <url-class-loader>
+                            <files>
+                                <files>
+                                    <list>
+                                        <file file="${global.projDir}/oj-assembly/lib/ant-junit.jar"/>
+                                        <file file="${global.projDir}/arooa/test/lib/junit.jar"/>
+                                    </list>
+                                </files>
+                            </files>
+                            <parent>
+                                <value value="${arooa-ant.class.classLoader}"/>
+                            </parent>
+                        </url-class-loader>
+                    </antClassLoader>
+                </variables>
+                <ant id="arooa-ant" name="Arooa Ant">
+                    <tasks>
+                        <xml>
+                            <tasks>
+                                <ant antfile="${global.projDir}/arooa/build.xml" inheritAll="false" target="${thisant.target}">
+                                    <property name="dist.src.dir" value="${allants.dist.src.dir}"/>
+                                    <property name="dist.bin.dir" value="${allants.dist.bin.dir}"/>
+                                    <property name="build.version" value="${allants.build.version}"/>
+                                </ant>
+                            </tasks>
+                        </xml>
+                    </tasks>
+                    <classLoader>
+                        <value value="${vars.antClassLoader}"/>
+                    </classLoader>
+                </ant>
+                <ant id="oddjob-ant" name="Oddjob Ant">
+                    <tasks>
+                        <xml>
+                            <tasks>
+                                <ant antfile="${global.projDir}/oddjob/build.xml" inheritAll="false" target="${thisant.target}">
+                                    <property name="dist.src.dir" value="${allants.dist.src.dir}"/>
+                                    <property name="dist.bin.dir" value="${allants.dist.bin.dir}"/>
+                                    <property name="build.version" value="${allants.build.version}"/>
+                                </ant>
+                            </tasks>
+                        </xml>
+                    </tasks>
+                    <classLoader>
+                        <value value="${vars.antClassLoader}"/>
+                    </classLoader>
+                </ant>
+                <ant id="oj-ant-ant" name="OJ Ant Ant">
+                    <tasks>
+                        <xml>
+                            <tasks>
+                                <ant antfile="${global.projDir}/oj-ant/build.xml" inheritAll="false" target="${thisant.target}">
+                                    <property name="dist.src.dir" value="${allants.dist.src.dir}"/>
+                                    <property name="dist.bin.dir" value="${allants.dist.bin.dir}"/>
+                                    <property name="build.version" value="${allants.build.version}"/>
+                                </ant>
+                            </tasks>
+                        </xml>
+                    </tasks>
+                    <classLoader>
+                        <value value="${vars.antClassLoader}"/>
+                    </classLoader>
+                </ant>
+                <ant id="oj-mail-ant" name="OJ Mail Ant">
+                    <tasks>
+                        <xml>
+                            <tasks>
+                                <ant antfile="${global.projDir}/oj-mail/build.xml" inheritAll="false" target="${thisant.target}">
+                                    <property name="dist.src.dir" value="${allants.dist.src.dir}"/>
+                                    <property name="dist.bin.dir" value="${allants.dist.bin.dir}"/>
+                                    <property name="build.version" value="${allants.build.version}"/>
+                                </ant>
+                            </tasks>
+                        </xml>
+                    </tasks>
+                    <classLoader>
+                        <value value="${vars.antClassLoader}"/>
+                    </classLoader>
+                </ant>
+                <ant id="oj-net-ant" name="OJ Net Ant">
+                    <tasks>
+                        <xml>
+                            <tasks>
+                                <ant antfile="${global.projDir}/oj-net/build.xml" inheritAll="false" target="${thisant.target}">
+                                    <property name="dist.src.dir" value="${allants.dist.src.dir}"/>
+                                    <property name="dist.bin.dir" value="${allants.dist.bin.dir}"/>
+                                    <property name="build.version" value="${allants.build.version}"/>
+                                </ant>
+                            </tasks>
+                        </xml>
+                    </tasks>
+                    <classLoader>
+                        <value value="${vars.antClassLoader}"/>
+                    </classLoader>
+                </ant>
+                <ant id="oj-hsql-ant" name="OJ HSQL Ant">
+                    <tasks>
+                        <xml>
+                            <tasks>
+                                <ant antfile="${global.projDir}/oj-hsql/build.xml" inheritAll="false" target="${thisant.target}">
+                                    <property name="dist.src.dir" value="${allants.dist.src.dir}"/>
+                                    <property name="dist.bin.dir" value="${allants.dist.bin.dir}"/>
+                                    <property name="build.version" value="${allants.build.version}"/>
+                                </ant>
+                            </tasks>
+                        </xml>
+                    </tasks>
+                    <classLoader>
+                        <value value="${vars.antClassLoader}"/>
+                    </classLoader>
+                </ant>
+                <ant id="oj-struts-ant" name="OJ Struts Ant">
+                    <tasks>
+                        <xml>
+                            <tasks>
+                                <ant antfile="${global.projDir}/oj-struts/build.xml" inheritAll="false" target="${thisant.target}">
+                                    <property name="dist.src.dir" value="${allants.dist.src.dir}"/>
+                                    <property name="dist.bin.dir" value="${allants.dist.bin.dir}"/>
+                                    <property name="build.version" value="${allants.build.version}"/>
+                                </ant>
+                            </tasks>
+                        </xml>
+                    </tasks>
+                    <classLoader>
+                        <value value="${vars.antClassLoader}"/>
+                    </classLoader>
+                </ant>
+                <ant id="oj-spring-ant" name="OJ Spring Ant">
+                    <tasks>
+                        <xml>
+                            <tasks>
+                                <ant antfile="${global.projDir}/oj-spring/build.xml" inheritAll="false" target="${thisant.target}">
+                                    <property name="dist.src.dir" value="${allants.dist.src.dir}"/>
+                                    <property name="dist.bin.dir" value="${allants.dist.bin.dir}"/>
+                                    <property name="build.version" value="${allants.build.version}"/>
+                                </ant>
+                            </tasks>
+                        </xml>
+                    </tasks>
+                    <classLoader>
+                        <value value="${vars.antClassLoader}"/>
+                    </classLoader>
+                </ant>
+                <ant id="oj-examples-ant" name="OJ Examples Ant">
+                    <tasks>
+                        <xml>
+                            <tasks>
+                                <ant antfile="${global.projDir}/oj-examples/build.xml" inheritAll="false" target="${thisant.target}">
+                                    <property name="dist.src.dir" value="${allants.dist.src.dir}"/>
+                                    <property name="dist.bin.dir" value="${allants.dist.bin.dir}"/>
+                                    <property name="build.version" value="${allants.build.version}"/>
+                                </ant>
+                            </tasks>
+                        </xml>
+                    </tasks>
+                    <classLoader>
+                        <value value="${vars.antClassLoader}"/>
+                    </classLoader>
+                </ant>
+                <ant id="oj-assembly-ant" name="OJ Assembly Ant">
+                    <tasks>
+                        <xml>
+                            <tasks>
+                                <ant antfile="${global.projDir}/oj-assembly/build.xml" inheritAll="false" target="${thisant.target}">
+                                    <property name="dist.src.dir" value="${allants.dist.src.dir}"/>
+                                    <property name="dist.bin.dir" value="${allants.dist.bin.dir}"/>
+                                    <property name="build.version" value="${allants.build.version}"/>
+                                </ant>
+                            </tasks>
+                        </xml>
+                    </tasks>
+                    <classLoader>
+                        <value value="${vars.antClassLoader}"/>
+                    </classLoader>
+                </ant>
+            </jobs>
+        </sequential>
+    </job>
+</oddjob>

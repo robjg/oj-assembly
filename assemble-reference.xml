@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<oddjob>
+ <job>
+ 	<ant id="build-reference" messageLevel="VERBOSE">
+ 		<tasks>
+ 			<xml>
+ 				<tasks>
+ 				
+		<path id="classpath">
+			<fileset file="${allants.dist.bin.dir}/run-oddjob.jar"/>
+			<fileset dir="${allants.dist.bin.dir}/lib">
+				<include name="*.jar"/>
+			</fileset>
+			<fileset dir="${allants.dist.bin.dir}/opt/lib">
+				<include name="*.jar"/>
+			</fileset>
+			<fileset dir="${allants.dist.bin.dir}/oddballs/oj-ant/lib">
+				<include name="*.jar"/>
+			</fileset>
+			<fileset dir="${allants.dist.bin.dir}/oddballs/oj-hsql/lib">
+				<include name="*.jar"/>
+			</fileset>
+			<fileset dir="${allants.dist.bin.dir}/oddballs/oj-mail/lib">
+				<include name="*.jar"/>
+			</fileset>
+			<fileset dir="${allants.dist.bin.dir}/oddballs/oj-net/lib">
+				<include name="*.jar"/>
+			</fileset>
+			<fileset dir="${allants.dist.src.dir}/oj-struts/lib">
+				<include name="*.jar"/>
+			</fileset>
+			<fileset dir="${allants.dist.bin.dir}/opt/oddballs/oj-spring/lib">
+				<include name="*.jar"/>
+			</fileset>
+		</path>
+		
+		<path id="sourcepath">
+            <pathelement location="${global.projDir}/arooa/build/src"/>
+			<pathelement location="${global.projDir}/oddjob/build/src"/>
+			<pathelement location="${global.projDir}/oj-ant/build/src/"/>
+			<pathelement location="${global.projDir}/oj-hsql/build/src/"/>
+			<pathelement location="${global.projDir}/oj-mail/build/src/"/>
+			<pathelement location="${global.projDir}/oj-net/build/src/"/>
+			<pathelement location="${global.projDir}/oj-struts/build/src/"/>
+			<pathelement location="${global.projDir}/oj-spring/build/src/"/>
+		</path>
+		
+        <!--  Tests required for resources. 
+                arooa test java required for example code. -->
+		<path id="docletpath">
+			<pathelement location="${global.projDir}/oddjob/build/tools"/>
+			<path refid="classpath"/>
+            <pathelement location="${global.projDir}/arooa/build/test"/>
+            <pathelement location="${global.projDir}/arooa/test/java"/>
+            <pathelement location="${global.projDir}/oddjob/build/test"/>
+			<pathelement location="${global.projDir}/oj-ant/build/test/"/>
+			<pathelement location="${global.projDir}/oj-hsql/build/test/"/>
+			<pathelement location="${global.projDir}/oj-mail/build/test/"/>
+			<pathelement location="${global.projDir}/oj-net/build/test/"/>
+			<pathelement location="${global.projDir}/oj-struts/build/test/"/>
+            <pathelement location="${global.projDir}/oj-spring/build/test/"/>
+		</path>
+		
+		<mkdir dir="${allants.dist.bin.dir}/docs/reference" />
+
+		<javadoc packagenames="org.oddjob.*"
+             sourcepathref="sourcepath"
+			 destdir="${allants.dist.bin.dir}/docs/reference"
+			 docletpathref="docletpath"
+			 classpathref="classpath"
+			 doclet="org.oddjob.doclet.ManualDoclet"
+			 access="private">
+		</javadoc>
+		
+ 				</tasks>
+ 			</xml>
+ 		</tasks>
+ 	</ant>
+ </job>
+</oddjob>

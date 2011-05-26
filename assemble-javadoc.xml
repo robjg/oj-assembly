@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<oddjob>
+ <job>
+ 	<ant id="build-reference">
+ 		<tasks>
+ 			<xml>
+ 				<tasks>
+ 				
+		<path id="classpath">
+			<fileset dir="${allants.dist.bin.dir}/lib">
+				<include name="*.jar"/>
+			</fileset>
+			<fileset dir="${allants.dist.bin.dir}/opt/lib">
+				<include name="*.jar"/>
+			</fileset>
+			<fileset dir="${allants.dist.src.dir}/oj-ant/lib">
+				<include name="*.jar"/>
+			</fileset>
+			<fileset dir="${allants.dist.src.dir}/oj-hsql/lib">
+				<include name="*.jar"/>
+			</fileset>
+			<fileset dir="${allants.dist.src.dir}/oj-struts/lib">
+				<include name="*.jar"/>
+			</fileset>
+			<fileset dir="${allants.dist.src.dir}/oj-spring/lib">
+				<include name="*.jar"/>
+			</fileset>
+		</path>
+		
+		<path id="sourcepath">
+            <pathelement location="${global.projDir}/arooa/build/src"/>
+			<pathelement location="${global.projDir}/oddjob/build/src"/>
+			<pathelement location="${global.projDir}/oj-ant/build/src/"/>
+			<pathelement location="${global.projDir}/oj-hsql/build/src/"/>
+			<pathelement location="${global.projDir}/oj-bsf/build/src/"/>
+			<pathelement location="${global.projDir}/oj-spring/build/src/"/>
+		</path>
+		
+		<mkdir dir="${allants.dist.bin.dir}/docs/api" />
+
+		<javadoc packagenames="org.oddjob.*"
+             sourcepathref="sourcepath"
+			 destdir="${allants.dist.bin.dir}/docs/api"
+             author="true"
+             version="true"
+             use="false"
+             noindex="true"
+             windowtitle="Oddjob ${global.ojVersion} API"
+             doctitle="Oddjob ${global.ojVersion}">
+			<classpath refid="classpath"/>
+			<link href="http://java.sun.com/javase/6/docs/api/"/>
+			<tag name="oddjob.element" description="Oddjob Element: "/>
+			<tag name="oddjob.property" description="Oddjob Property: "/>
+			<tag name="oddjob.description" description="Description: "/>
+			<tag name="oddjob.example" description="Example: "/>
+			<tag name="oddjob.required" description="Required: "/>
+			<tag name="see"/>
+			<tag name="author"/>
+			<tag name="version"/>
+			<tag name="since"/>
+			<tag name="param"/>
+			<tag name="return"/>
+			<tag name="throws"/>
+		</javadoc>
+		
+ 				</tasks>
+ 			</xml>
+ 		</tasks>
+ 	</ant>
+ </job>
+</oddjob>

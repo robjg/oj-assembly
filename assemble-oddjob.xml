@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<oddjob id="this">
+    <job>
+        <sequential name="Assembley Sequence">
+            <jobs>
+                <properties id="allants" name="Ant Properties">
+                    <values>
+                        <value key="allants.dist.dir" value="${global.workDir}/ojdist"/>
+                        <value key="allants.dist.target" value="${global.workDir}/ojdist"/>
+                        <value key="allants.build.version" value="${global.ojVersion}"/>
+                        <value key="allants.dist.name" value="oddjob-${allants.build.version}"/>
+                        <value key="allants.dist.src.dir" value="${allants.dist.dir}/source/oddjob-src"/>
+                        <value key="allants.dist.bin.dir" value="${allants.dist.dir}/bin/oddjob"/>
+                        <value key="default.build.target" value="jar"/>
+                    </values>
+                </properties>
+                <delete force="true" id="delete-dist">
+                    <files>
+                        <file file="${allants.dist.dir}"/>
+                    </files>
+                </delete>
+                <oddjob file="${this.dir}/assemble-oddjob-ants.xml" id="run-clean" name="Clean">
+                    <properties>
+                        <properties>
+                            <values>
+                                <value key="thisant.target" value="clean"/>
+                            </values>
+                        </properties>
+                    </properties>
+                </oddjob>
+                <sequential name="Create Distribution Directory">
+                    <jobs>
+                        <mkdir dir="${allants.dist.dir}"/>
+                        <mkdir dir="${allants.dist.src.dir}"/>
+                        <mkdir dir="${allants.dist.bin.dir}"/>
+                    </jobs>
+                </sequential>
+                <oddjob file="${this.dir}/assemble-oddjob-ants.xml" id="run-all-jars" name="All Jars">
+                    <properties>
+                        <properties>
+                            <values>
+                                <value key="thisant.target" value="${default.build.target}"/>
+                            </values>
+                        </properties>
+                    </properties>
+                </oddjob>
+                <oddjob file="${this.dir}/assemble-oddjob-ants.xml" id="run-all-tests" name="All Tests">
+                    <properties>
+                        <properties>
+                            <values>
+                                <value key="thisant.target" value="all-tests"/>
+                            </values>
+                        </properties>
+                    </properties>
+                </oddjob>
+                <oddjob file="${this.dir}/assemble-oddjob-ants.xml" id="run-dist-src" name="Dist Src">
+                    <properties>
+                        <properties>
+                            <values>
+                                <value key="thisant.target" value="dist-src"/>
+                            </values>
+                        </properties>
+                    </properties>
+                </oddjob>
+                <oddjob file="${this.dir}/assemble-oddjob-ants.xml" id="run-dist-bin" name="Dist Bin">
+                    <properties>
+                        <properties>
+                            <values>
+                                <value key="thisant.target" value="dist-bin"/>
+                            </values>
+                        </properties>
+                    </properties>
+                </oddjob>
+                <oddjob file="${this.dir}/assemble-javadoc.xml" id="build-javadoc" name="Build Javadoc"/>
+                <oddjob file="${this.dir}/assemble-reference.xml" id="build-reference" name="Build Reference"/>
+                <oddjob file="${this.dir}/assemble-archives.xml" id="assemble-archives" name="Assemble Archives"/>
+                <folder>
+                    <jobs>
+                        <oddjob file="${this.dir}/assemble-oddjob-ants.xml" id="run-jar" name="Just The Jars">
+                            <properties>
+                                <properties>
+                                    <values>
+                                        <value key="thisant.target" value="jar"/>
+                                    </values>
+                                </properties>
+                            </properties>
+                        </oddjob>
+                    </jobs>
+                </folder>
+            </jobs>
+        </sequential>
+    </job>
+</oddjob>

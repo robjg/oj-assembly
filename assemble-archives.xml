@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<oddjob>
+ <job>
+ 	<ant id="assemble-archive">
+ 		<tasks>
+ 			<xml>
+ 				<tasks>
+ 				
+		<zip zipfile="${allants.dist.target}/${allants.dist.name}-src.zip"
+         	basedir="${allants.dist.dir}/source"/>
+         	
+		<tar tarfile="${allants.dist.target}/${allants.dist.name}-src.tar"
+         basedir="${allants.dist.dir}/source"
+         longfile="gnu"/>
+         
+		<gzip zipfile="${allants.dist.target}/${allants.dist.name}-src.tar.gz"
+          src="${allants.dist.target}/${allants.dist.name}-src.tar"/>
+
+		<zip zipfile="${allants.dist.target}/${allants.dist.name}.zip"
+         basedir="${allants.dist.dir}/bin"/>
+
+		<tar tarfile="${allants.dist.target}/${allants.dist.name}.tar"
+         basedir="${allants.dist.dir}/bin"
+         longfile="gnu"/>
+         
+		<gzip zipfile="${allants.dist.target}/${allants.dist.name}.tar.gz"
+          src="${allants.dist.target}/${allants.dist.name}.tar"/>
+		
+ 				</tasks>
+ 			</xml>
+ 		</tasks>
+ 	</ant>
+ </job>
+</oddjob>

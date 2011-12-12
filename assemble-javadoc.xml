@@ -19,7 +19,7 @@
 			<fileset dir="${allants.dist.src.dir}/oj-hsql/lib">
 				<include name="*.jar"/>
 			</fileset>
-			<fileset dir="${allants.dist.src.dir}/oj-struts/lib">
+			<fileset dir="${allants.dist.src.dir}/oj-jsf/war/WEB-INF/lib">
 				<include name="*.jar"/>
 			</fileset>
 			<fileset dir="${allants.dist.src.dir}/oj-spring/lib">
@@ -32,7 +32,9 @@
 			<pathelement location="${global.projDir}/oddjob/build/src"/>
 			<pathelement location="${global.projDir}/oj-ant/build/src/"/>
 			<pathelement location="${global.projDir}/oj-hsql/build/src/"/>
-			<pathelement location="${global.projDir}/oj-bsf/build/src/"/>
+			<pathelement location="${global.projDir}/oj-jsf/build/src/"/>
+            <pathelement location="${global.projDir}/oj-mail/build/src/"/>
+            <pathelement location="${global.projDir}/oj-net/build/src/"/>
 			<pathelement location="${global.projDir}/oj-spring/build/src/"/>
 		</path>
 		
@@ -49,7 +51,6 @@
              doctitle="Oddjob ${global.ojVersion}">
 			<classpath refid="classpath"/>
 			<link href="http://java.sun.com/javase/6/docs/api/"/>
-			<tag name="oddjob.element" description="Oddjob Element: "/>
 			<tag name="oddjob.property" description="Oddjob Property: "/>
 			<tag name="oddjob.description" description="Description: "/>
 			<tag name="oddjob.example" description="Example: "/>

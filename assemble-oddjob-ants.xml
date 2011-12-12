@@ -122,11 +122,11 @@
                         <value value="${vars.antClassLoader}"/>
                     </classLoader>
                 </ant>
-                <ant id="oj-struts-ant" name="OJ Struts Ant">
+                <ant id="oj-jsf-ant" name="OJ JSF Ant">
                     <tasks>
                         <xml>
                             <tasks>
-                                <ant antfile="${global.projDir}/oj-struts/build.xml" inheritAll="false" target="${thisant.target}">
+                                <ant antfile="${global.projDir}/oj-jsf/build.xml" inheritAll="false" target="${thisant.target}">
                                     <property name="dist.src.dir" value="${allants.dist.src.dir}"/>
                                     <property name="dist.bin.dir" value="${allants.dist.bin.dir}"/>
                                     <property name="build.version" value="${allants.build.version}"/>

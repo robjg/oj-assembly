@@ -38,6 +38,22 @@
 			<pathelement location="${global.projDir}/oj-spring/build/src/"/>
 		</path>
 		
+        <!--  Tests required for resources. 
+                arooa test java required for example code. -->
+        <path id="tagletpath">
+            <pathelement location="${global.projDir}/oddjob/build/tools"/>
+            <path refid="classpath"/>
+            <pathelement location="${global.projDir}/arooa/build/test"/>
+            <pathelement location="${global.projDir}/arooa/test/java"/>
+            <pathelement location="${global.projDir}/oddjob/build/test"/>
+            <pathelement location="${global.projDir}/oj-ant/build/test/"/>
+            <pathelement location="${global.projDir}/oj-hsql/build/test/"/>
+            <pathelement location="${global.projDir}/oj-mail/build/test/"/>
+            <pathelement location="${global.projDir}/oj-net/build/test/"/>
+            <pathelement location="${global.projDir}/oj-jsf/build/test/"/>
+            <pathelement location="${global.projDir}/oj-spring/build/test/"/>
+        </path>
+        
 		<mkdir dir="${allants.dist.bin.dir}/docs/api" />
 
 		<javadoc packagenames="org.oddjob.*"
@@ -51,10 +67,18 @@
              doctitle="Oddjob ${global.ojVersion}">
 			<classpath refid="classpath"/>
 			<link href="http://java.sun.com/javase/6/docs/api/"/>
-			<tag name="oddjob.property" description="Oddjob Property: "/>
-			<tag name="oddjob.description" description="Description: "/>
-			<tag name="oddjob.example" description="Example: "/>
-			<tag name="oddjob.required" description="Required: "/>
+            <taglet name="org.oddjob.tools.taglet.PropertyTaglet">
+                <path refid="tagletpath"/>
+            </taglet>
+            <taglet name="org.oddjob.tools.taglet.DescriptionTaglet">
+                <path refid="tagletpath"/>
+            </taglet>
+            <taglet name="org.oddjob.tools.taglet.ExampleTaglet">
+                <path refid="tagletpath"/>
+            </taglet>
+            <taglet name="org.oddjob.tools.taglet.RequiredTaglet">
+                <path refid="tagletpath"/>
+            </taglet>
 			<tag name="see"/>
 			<tag name="author"/>
 			<tag name="version"/>

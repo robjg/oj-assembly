@@ -15,7 +15,7 @@
                             <files>
                                 <files>
                                     <list>
-                                        <file file="${global.projDir}/oj-assembly/lib/ant-junit.jar"/>
+                                        <files files="${global.projDir}/oj-assembly/lib/*.jar"/>
                                         <file file="${global.projDir}/arooa/test/lib/junit.jar"/>
                                     </list>
                                 </files>

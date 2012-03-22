@@ -85,6 +85,33 @@
                                 </properties>
                             </properties>
                         </oddjob>
+                        <oddjob file="${this.dir}/assemble-oddjob-ants.xml" id="run-maven-install" name="Maven Install">
+                            <properties>
+                                <properties>
+                                    <values>
+                                        <value key="thisant.target" value="maven-install"/>
+                                    </values>
+                                </properties>
+                            </properties>
+                        </oddjob>
+                        <oddjob file="${this.dir}/assemble-oddjob-ants.xml" id="run-maven-deploy" name="Maven Deploy Snapshot">
+                            <properties>
+                                <properties>
+                                    <values>
+                                        <value key="thisant.target" value="maven-deploy"/>
+                                    </values>
+                                </properties>
+                            </properties>
+                        </oddjob>
+                        <oddjob file="${this.dir}/assemble-oddjob-ants.xml" id="run-maven-stage" name="Maven Stage">
+                            <properties>
+                                <properties>
+                                    <values>
+                                        <value key="thisant.target" value="maven-stage"/>
+                                    </values>
+                                </properties>
+                            </properties>
+                        </oddjob>
                     </jobs>
                 </folder>
             </jobs>

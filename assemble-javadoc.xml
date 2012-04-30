@@ -22,9 +22,6 @@
 			<fileset dir="${allants.dist.src.dir}/oj-jsf/war/WEB-INF/lib">
 				<include name="*.jar"/>
 			</fileset>
-			<fileset dir="${allants.dist.src.dir}/oj-spring/lib">
-				<include name="*.jar"/>
-			</fileset>
 		</path>
 		
 		<path id="sourcepath">
@@ -35,7 +32,6 @@
 			<pathelement location="${global.projDir}/oj-jsf/build/src/"/>
             <pathelement location="${global.projDir}/oj-mail/build/src/"/>
             <pathelement location="${global.projDir}/oj-net/build/src/"/>
-			<pathelement location="${global.projDir}/oj-spring/build/src/"/>
 		</path>
 		
         <!--  Tests required for resources. 
@@ -51,7 +47,6 @@
             <pathelement location="${global.projDir}/oj-mail/build/test/"/>
             <pathelement location="${global.projDir}/oj-net/build/test/"/>
             <pathelement location="${global.projDir}/oj-jsf/build/test/"/>
-            <pathelement location="${global.projDir}/oj-spring/build/test/"/>
         </path>
         
 		<mkdir dir="${allants.dist.bin.dir}/docs/api" />

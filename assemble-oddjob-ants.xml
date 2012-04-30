@@ -138,22 +138,6 @@
                         <value value="${vars.antClassLoader}"/>
                     </classLoader>
                 </ant>
-                <ant id="oj-spring-ant" name="OJ Spring Ant">
-                    <tasks>
-                        <xml>
-                            <tasks>
-                                <ant antfile="${global.projDir}/oj-spring/build.xml" inheritAll="false" target="${thisant.target}">
-                                    <property name="dist.src.dir" value="${allants.dist.src.dir}"/>
-                                    <property name="dist.bin.dir" value="${allants.dist.bin.dir}"/>
-                                    <property name="build.version" value="${allants.build.version}"/>
-                                </ant>
-                            </tasks>
-                        </xml>
-                    </tasks>
-                    <classLoader>
-                        <value value="${vars.antClassLoader}"/>
-                    </classLoader>
-                </ant>
                 <ant id="oj-examples-ant" name="OJ Examples Ant">
                     <tasks>
                         <xml>

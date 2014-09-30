@@ -10,23 +10,16 @@
                 </bean>
                 <check name="Check tools.jar is on Class Path" value="${find-tools.location}"/>
                 <variables id="vars">
-                    <antClassLoader>
-                        <url-class-loader>
-                            <files>
-                                <files>
-                                    <list>
-                                        <files files="${global.projDir}/oj-assembly/lib/*.jar"/>
-                                        <file file="${global.projDir}/arooa/test/lib/junit.jar"/>
-                                    </list>
-                                </files>
-                            </files>
-                            <parent>
-                                <value value="${arooa-ant.class.classLoader}"/>
-                            </parent>
-                        </url-class-loader>
-                    </antClassLoader>
+                    <path>
+                      <files>
+                        <list>
+                        <files files="${global.projDir}/oj-assembly/lib/*.jar"/>
+                        <files files="${global.projDir}/arooa/test/lib/junit.jar"/>
+                        </list>
+                      </files>
+                    </path>
                 </variables>
-                <ant id="arooa-ant" name="Arooa Ant">
+                <ant id="arooa-ant" name="Arooa Ant" classPath="${vars.path}">
                     <tasks>
                         <xml>
                             <tasks>
@@ -38,11 +31,8 @@
                             </tasks>
                         </xml>
                     </tasks>
-                    <classLoader>
-                        <value value="${vars.antClassLoader}"/>
-                    </classLoader>
                 </ant>
-                <ant id="oddjob-ant" name="Oddjob Ant">
+                <ant id="oddjob-ant" name="Oddjob Ant" classPath="${vars.path}">
                     <tasks>
                         <xml>
                             <tasks>
@@ -54,11 +44,8 @@
                             </tasks>
                         </xml>
                     </tasks>
-                    <classLoader>
-                        <value value="${vars.antClassLoader}"/>
-                    </classLoader>
                 </ant>
-                <ant id="oj-ant-ant" name="OJ Ant Ant">
+                <ant id="oj-ant-ant" name="OJ Ant Ant" classPath="${vars.path}">
                     <tasks>
                         <xml>
                             <tasks>
@@ -70,11 +57,8 @@
                             </tasks>
                         </xml>
                     </tasks>
-                    <classLoader>
-                        <value value="${vars.antClassLoader}"/>
-                    </classLoader>
                 </ant>
-                <ant id="oj-mail-ant" name="OJ Mail Ant">
+                <ant id="oj-mail-ant" name="OJ Mail Ant" classPath="${vars.path}">
                     <tasks>
                         <xml>
                             <tasks>
@@ -86,11 +70,8 @@
                             </tasks>
                         </xml>
                     </tasks>
-                    <classLoader>
-                        <value value="${vars.antClassLoader}"/>
-                    </classLoader>
                 </ant>
-                <ant id="oj-net-ant" name="OJ Net Ant">
+                <ant id="oj-net-ant" name="OJ Net Ant" classPath="${vars.path}">
                     <tasks>
                         <xml>
                             <tasks>
@@ -102,11 +83,8 @@
                             </tasks>
                         </xml>
                     </tasks>
-                    <classLoader>
-                        <value value="${vars.antClassLoader}"/>
-                    </classLoader>
                 </ant>
-                <ant id="oj-hsql-ant" name="OJ HSQL Ant">
+                <ant id="oj-hsql-ant" name="OJ HSQL Ant" classPath="${vars.path}">
                     <tasks>
                         <xml>
                             <tasks>
@@ -118,11 +96,8 @@
                             </tasks>
                         </xml>
                     </tasks>
-                    <classLoader>
-                        <value value="${vars.antClassLoader}"/>
-                    </classLoader>
                 </ant>
-                <ant id="oj-jsf-ant" name="OJ JSF Ant">
+                <ant id="oj-jsf-ant" name="OJ JSF Ant" classPath="${vars.path}">
                     <tasks>
                         <xml>
                             <tasks>
@@ -134,11 +109,8 @@
                             </tasks>
                         </xml>
                     </tasks>
-                    <classLoader>
-                        <value value="${vars.antClassLoader}"/>
-                    </classLoader>
                 </ant>
-                <ant id="oj-examples-ant" name="OJ Examples Ant">
+                <ant id="oj-examples-ant" name="OJ Examples Ant" classPath="${vars.path}">
                     <tasks>
                         <xml>
                             <tasks>
@@ -150,11 +122,8 @@
                             </tasks>
                         </xml>
                     </tasks>
-                    <classLoader>
-                        <value value="${vars.antClassLoader}"/>
-                    </classLoader>
                 </ant>
-                <ant id="oj-assembly-ant" name="OJ Assembly Ant">
+                <ant id="oj-assembly-ant" name="OJ Assembly Ant" classPath="${vars.path}">
                     <tasks>
                         <xml>
                             <tasks>
@@ -166,9 +135,6 @@
                             </tasks>
                         </xml>
                     </tasks>
-                    <classLoader>
-                        <value value="${vars.antClassLoader}"/>
-                    </classLoader>
                 </ant>
             </jobs>
         </sequential>

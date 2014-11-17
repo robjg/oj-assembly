@@ -81,6 +81,9 @@
 			<tag name="param"/>
 			<tag name="return"/>
 			<tag name="throws"/>
+            <!-- Required for Javadoc 8  
+              arg value="-Xdoclint:none"/>
+            -->
 		</javadoc>
 		
  				</tasks>

@@ -26,9 +26,6 @@
 			<fileset dir="${allants.dist.bin.dir}/oddballs/oj-net/lib">
 				<include name="*.jar"/>
 			</fileset>
-			<fileset dir="${allants.dist.src.dir}/oj-jsf/war/WEB-INF/lib">
-				<include name="*.jar"/>
-			</fileset>
 		</path>
 		
 		<path id="sourcepath">
@@ -38,7 +35,6 @@
 			<pathelement location="${global.projDir}/oj-hsql/build/src/"/>
 			<pathelement location="${global.projDir}/oj-mail/build/src/"/>
 			<pathelement location="${global.projDir}/oj-net/build/src/"/>
-			<pathelement location="${global.projDir}/oj-jsf/build/src/"/>
 		</path>
 		
         <!--  Tests required for resources. 
@@ -46,14 +42,13 @@
 		<path id="docletpath">
 			<pathelement location="${global.projDir}/oddjob/build/tools/classes"/>
 			<path refid="classpath"/>
-            <pathelement location="${global.projDir}/arooa/build/test"/>
+            <pathelement location="${global.projDir}/arooa/build/test/"/>
             <pathelement location="${global.projDir}/arooa/test/java"/>
-            <pathelement location="${global.projDir}/oddjob/build/test"/>
-			<pathelement location="${global.projDir}/oj-ant/build/test/"/>
+            <pathelement location="${global.projDir}/oddjob/build/test/classes"/>
+			<pathelement location="${global.projDir}/oj-ant/build/test/classes"/>
 			<pathelement location="${global.projDir}/oj-hsql/build/test/"/>
 			<pathelement location="${global.projDir}/oj-mail/build/test/"/>
 			<pathelement location="${global.projDir}/oj-net/build/test/"/>
-			<pathelement location="${global.projDir}/oj-jsf/build/test/"/>
 		</path>
 		
 		<mkdir dir="${allants.dist.bin.dir}/docs/reference" />

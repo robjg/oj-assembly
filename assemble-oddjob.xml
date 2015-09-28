@@ -11,7 +11,7 @@
                         <value key="allants.dist.name" value="oddjob-${allants.build.version}"/>
                         <value key="allants.dist.src.dir" value="${allants.dist.dir}/source/oddjob-src"/>
                         <value key="allants.dist.bin.dir" value="${allants.dist.dir}/bin/oddjob"/>
-                        <value key="default.build.target" value="jar"/>
+                        <value key="default.build.target" value="install"/>
                     </values>
                 </properties>
                 <delete force="true" id="delete-dist">

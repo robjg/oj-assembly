@@ -3,12 +3,16 @@
     <job>
         <sequential name="Assembley Sequence">
             <jobs>
+                <properties name="Load Version File">
+                  <input>
+                    <file file="${this.dir}/version.properties"/>
+                  </input>
+                </properties>
                 <properties id="allants" name="Ant Properties">
                     <values>
                         <value key="allants.dist.dir" value="${global.workDir}/ojdist"/>
                         <value key="allants.dist.target" value="${global.workDir}/ojdist"/>
-                        <value key="allants.build.version" value="${global.ojVersion}"/>
-                        <value key="allants.dist.name" value="oddjob-${allants.build.version}"/>
+                        <value key="allants.dist.name" value="oddjob-${project.version}"/>
                         <value key="allants.dist.src.dir" value="${allants.dist.dir}/source/oddjob-src"/>
                         <value key="allants.dist.bin.dir" value="${allants.dist.dir}/bin/oddjob"/>
                         <value key="default.build.target" value="install"/>

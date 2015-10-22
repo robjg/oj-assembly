@@ -2,7 +2,7 @@
 <oddjob id="this">
     <job>
         <sequential name="${thisant.target} Ants">
-            <jobs>
+              <jobs>
                 <bean class="org.oddjob.util.ClassLoaderDiagnostics" className="com.sun.tools.javac.Main" id="find-tools" name="Find tools.jar in Class Path">
                     <classLoader>
                         <value value="${arooa-ant.classLoader}"/>
@@ -26,7 +26,6 @@
                                 <ant antfile="${global.projDir}/arooa/build.xml" inheritAll="false" target="${thisant.target}">
                                     <property name="dist.src.dir" value="${allants.dist.src.dir}"/>
                                     <property name="dist.bin.dir" value="${allants.dist.bin.dir}"/>
-                                    <property name="build.version" value="${allants.build.version}"/>
                                 </ant>
                             </tasks>
                         </xml>
@@ -39,7 +38,6 @@
                                 <ant antfile="${global.projDir}/oddjob/build.xml" inheritAll="false" target="${thisant.target}">
                                     <property name="dist.src.dir" value="${allants.dist.src.dir}"/>
                                     <property name="dist.bin.dir" value="${allants.dist.bin.dir}"/>
-                                    <property name="build.version" value="${allants.build.version}"/>
                                 </ant>
                             </tasks>
                         </xml>
@@ -52,7 +50,6 @@
                                 <ant antfile="${global.projDir}/oj-ant/build.xml" inheritAll="false" target="${thisant.target}">
                                     <property name="dist.src.dir" value="${allants.dist.src.dir}"/>
                                     <property name="dist.bin.dir" value="${allants.dist.bin.dir}"/>
-                                    <property name="build.version" value="${allants.build.version}"/>
                                 </ant>
                             </tasks>
                         </xml>
@@ -65,7 +62,6 @@
                                 <ant antfile="${global.projDir}/oj-mail/build.xml" inheritAll="false" target="${thisant.target}">
                                     <property name="dist.src.dir" value="${allants.dist.src.dir}"/>
                                     <property name="dist.bin.dir" value="${allants.dist.bin.dir}"/>
-                                    <property name="build.version" value="${allants.build.version}"/>
                                 </ant>
                             </tasks>
                         </xml>
@@ -78,7 +74,6 @@
                                 <ant antfile="${global.projDir}/oj-net/build.xml" inheritAll="false" target="${thisant.target}">
                                     <property name="dist.src.dir" value="${allants.dist.src.dir}"/>
                                     <property name="dist.bin.dir" value="${allants.dist.bin.dir}"/>
-                                    <property name="build.version" value="${allants.build.version}"/>
                                 </ant>
                             </tasks>
                         </xml>
@@ -91,7 +86,6 @@
                                 <ant antfile="${global.projDir}/oj-hsql/build.xml" inheritAll="false" target="${thisant.target}">
                                     <property name="dist.src.dir" value="${allants.dist.src.dir}"/>
                                     <property name="dist.bin.dir" value="${allants.dist.bin.dir}"/>
-                                    <property name="build.version" value="${allants.build.version}"/>
                                 </ant>
                             </tasks>
                         </xml>
@@ -104,7 +98,6 @@
                                 <ant antfile="${global.projDir}/oj-examples/build.xml" inheritAll="false" target="${thisant.target}">
                                     <property name="dist.src.dir" value="${allants.dist.src.dir}"/>
                                     <property name="dist.bin.dir" value="${allants.dist.bin.dir}"/>
-                                    <property name="build.version" value="${allants.build.version}"/>
                                 </ant>
                             </tasks>
                         </xml>
@@ -117,7 +110,6 @@
                                 <ant antfile="${global.projDir}/oj-assembly/build.xml" inheritAll="false" target="${thisant.target}">
                                     <property name="dist.src.dir" value="${allants.dist.src.dir}"/>
                                     <property name="dist.bin.dir" value="${allants.dist.bin.dir}"/>
-                                    <property name="build.version" value="${allants.build.version}"/>
                                 </ant>
                             </tasks>
                         </xml>

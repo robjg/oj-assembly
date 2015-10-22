@@ -5,7 +5,6 @@
             <jobs>
                 <properties>
 	                <values>
-	                	<value key="global.ojVersion" value="@version@"/>
                         <file key="global.projDir" file="${this.dir}/.."/>
                         <value key="global.workDir" value="${this.dir}/work"/>
 	                </values>

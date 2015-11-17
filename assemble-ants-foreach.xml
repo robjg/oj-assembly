@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<foreach id="each">
+    <job>
+        <ant classPath="${vars.path}" name="${each.current} Ant">
+            <tasks>
+                <xml>
+                    <tasks>
+                        <ant antfile="${global.projDir}/${each.current}/build.xml" inheritAll="false" target="${thisant.target}">
+                            <property name="dist.src.dir" value="${allants.dist.src.dir}"/>
+                            <property name="dist.bin.dir" value="${allants.dist.bin.dir}"/>
+                        </ant>
+                    </tasks>
+                </xml>
+            </tasks>
+        </ant>
+    </job>
+</foreach>

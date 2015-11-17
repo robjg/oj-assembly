@@ -2,119 +2,37 @@
 <oddjob id="this">
     <job>
         <sequential name="${thisant.target} Ants">
-              <jobs>
+            <jobs>
                 <bean class="org.oddjob.util.ClassLoaderDiagnostics" className="com.sun.tools.javac.Main" id="find-tools" name="Find tools.jar in Class Path">
                     <classLoader>
-                        <value value="${arooa-ant.classLoader}"/>
+                        <value value="${classpath-test-ant.classLoader}"/>
                     </classLoader>
                 </bean>
                 <check name="Check tools.jar is on Class Path" value="${find-tools.location}"/>
                 <variables id="vars">
                     <path>
-                      <files>
-                        <list>
-                        <files files="${global.projDir}/oj-assembly/lib/*.jar"/>
-                        <files files="${global.projDir}/arooa/test/lib/junit.jar"/>
-                        </list>
-                      </files>
+                        <files>
+                            <list>
+                                <files files="${global.projDir}/oj-assembly/lib/*.jar"/>
+                                <files files="${global.projDir}/arooa/test/lib/junit.jar"/>
+                            </list>
+                        </files>
                     </path>
                 </variables>
-                <ant id="arooa-ant" name="Arooa Ant" classPath="${vars.path}">
+                <ant classPath="${vars.path}" id="classpath-test-ant" name="Classpath Test Ant">
                     <tasks>
                         <xml>
                             <tasks>
-                                <ant antfile="${global.projDir}/arooa/build.xml" inheritAll="false" target="${thisant.target}">
-                                    <property name="dist.src.dir" value="${allants.dist.src.dir}"/>
-                                    <property name="dist.bin.dir" value="${allants.dist.bin.dir}"/>
-                                </ant>
+                                <echo message="Checking Ant Classpath..."/>
                             </tasks>
                         </xml>
                     </tasks>
                 </ant>
-                <ant id="oddjob-ant" name="Oddjob Ant" classPath="${vars.path}">
-                    <tasks>
-                        <xml>
-                            <tasks>
-                                <ant antfile="${global.projDir}/oddjob/build.xml" inheritAll="false" target="${thisant.target}">
-                                    <property name="dist.src.dir" value="${allants.dist.src.dir}"/>
-                                    <property name="dist.bin.dir" value="${allants.dist.bin.dir}"/>
-                                </ant>
-                            </tasks>
-                        </xml>
-                    </tasks>
-                </ant>
-                <ant id="oj-ant-ant" name="OJ Ant Ant" classPath="${vars.path}">
-                    <tasks>
-                        <xml>
-                            <tasks>
-                                <ant antfile="${global.projDir}/oj-ant/build.xml" inheritAll="false" target="${thisant.target}">
-                                    <property name="dist.src.dir" value="${allants.dist.src.dir}"/>
-                                    <property name="dist.bin.dir" value="${allants.dist.bin.dir}"/>
-                                </ant>
-                            </tasks>
-                        </xml>
-                    </tasks>
-                </ant>
-                <ant id="oj-mail-ant" name="OJ Mail Ant" classPath="${vars.path}">
-                    <tasks>
-                        <xml>
-                            <tasks>
-                                <ant antfile="${global.projDir}/oj-mail/build.xml" inheritAll="false" target="${thisant.target}">
-                                    <property name="dist.src.dir" value="${allants.dist.src.dir}"/>
-                                    <property name="dist.bin.dir" value="${allants.dist.bin.dir}"/>
-                                </ant>
-                            </tasks>
-                        </xml>
-                    </tasks>
-                </ant>
-                <ant id="oj-net-ant" name="OJ Net Ant" classPath="${vars.path}">
-                    <tasks>
-                        <xml>
-                            <tasks>
-                                <ant antfile="${global.projDir}/oj-net/build.xml" inheritAll="false" target="${thisant.target}">
-                                    <property name="dist.src.dir" value="${allants.dist.src.dir}"/>
-                                    <property name="dist.bin.dir" value="${allants.dist.bin.dir}"/>
-                                </ant>
-                            </tasks>
-                        </xml>
-                    </tasks>
-                </ant>
-                <ant id="oj-hsql-ant" name="OJ HSQL Ant" classPath="${vars.path}">
-                    <tasks>
-                        <xml>
-                            <tasks>
-                                <ant antfile="${global.projDir}/oj-hsql/build.xml" inheritAll="false" target="${thisant.target}">
-                                    <property name="dist.src.dir" value="${allants.dist.src.dir}"/>
-                                    <property name="dist.bin.dir" value="${allants.dist.bin.dir}"/>
-                                </ant>
-                            </tasks>
-                        </xml>
-                    </tasks>
-                </ant>
-                <ant id="oj-examples-ant" name="OJ Examples Ant" classPath="${vars.path}">
-                    <tasks>
-                        <xml>
-                            <tasks>
-                                <ant antfile="${global.projDir}/oj-examples/build.xml" inheritAll="false" target="${thisant.target}">
-                                    <property name="dist.src.dir" value="${allants.dist.src.dir}"/>
-                                    <property name="dist.bin.dir" value="${allants.dist.bin.dir}"/>
-                                </ant>
-                            </tasks>
-                        </xml>
-                    </tasks>
-                </ant>
-                <ant id="oj-assembly-ant" name="OJ Assembly Ant" classPath="${vars.path}">
-                    <tasks>
-                        <xml>
-                            <tasks>
-                                <ant antfile="${global.projDir}/oj-assembly/build.xml" inheritAll="false" target="${thisant.target}">
-                                    <property name="dist.src.dir" value="${allants.dist.src.dir}"/>
-                                    <property name="dist.bin.dir" value="${allants.dist.bin.dir}"/>
-                                </ant>
-                            </tasks>
-                        </xml>
-                    </tasks>
-                </ant>
+                <foreach file="${this.dir}/assemble-ants-foreach.xml" name="For Each Project">
+                    <values>
+                        <tokenizer text="${assembly.projects}"/>
+                    </values>
+                </foreach>
             </jobs>
         </sequential>
     </job>

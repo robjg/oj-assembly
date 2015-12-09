@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<oddjob id="this">
+    <job>
+        <sequential>
+            <jobs>
+                <properties name="Default Properties">
+                    <values>
+                        <value key="git.url" value="https://github.com"/>
+                        <value key="project.list" value="oj-ant, oj-hsql, oj-net, oj-web, oj-mail, oj-examples, beancmpr, oj-groovy, dido, dido-poi, dido-assembly, oj-spring"/>
+                    </values>
+                </properties>
+                <input name="Request Properties">
+                    <requests>
+                        <input-file currentDirectory="${this.dir}" default="${user.home}/AppData/Local/Programs/Git/bin/git.exe" prompt="Git Executable" property="git.exe" selectionMode="FILE"/>
+                        <input-file currentDirectory="${this.dir}" default="${user.home}/projects" prompt="Clone To Directory" property="projects.dir" selectionMode="DIRECTORY"/>
+                    </requests>
+                </input>
+                <exists file="${git.exe}" name="Check Git Exe"/>
+                <exists file="${projects.dir}" name="Check Clone Directory Exists"/>
+                <foreach>
+                    <values>
+                        <tokenizer text="${project.list}"/>
+                    </values>
+                    <configuration>
+                        <xml>
+                            <foreach id="each">
+                                <job>
+                                    <sequential name="Clone ${each.current}">
+                                        <jobs>
+                                            <properties>
+                                                <values>
+                                                    <file file="${projects.dir}/${each.current}" key="clone.dir"/>
+                                                </values>
+                                            </properties>
+                                            <exec><![CDATA[${git.exe} clone ${git.url}/robjg/${each.current} ${clone.dir}]]></exec>
+                                        </jobs>
+                                    </sequential>
+                                </job>
+                            </foreach>
+                        </xml>
+                    </configuration>
+                </foreach>
+            </jobs>
+        </sequential>
+    </job>
+</oddjob>

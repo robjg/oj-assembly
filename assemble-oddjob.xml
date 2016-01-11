@@ -10,7 +10,7 @@
                 </properties>
                 <properties id="allants" name="Ant Properties">
                     <values>
-                        <value key="assembly.projects" value="arooa, oddjob, oj-ant, oj-net, oj-mail, oj-hsql, oj-examples, oj-assembly"/>
+                        <value key="assembly.projects" value="arooa, oddjob, oj-ant, oj-net, oj-mail, oj-hsql, oj-web, oj-examples, oj-assembly"/>
                         <value key="allants.dist.dir" value="${global.workDir}/ojdist"/>
                         <value key="allants.dist.dir" value="${global.workDir}/ojdist"/>
                         <value key="allants.dist.target" value="${global.workDir}/ojdist"/>

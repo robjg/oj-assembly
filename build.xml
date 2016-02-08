@@ -11,9 +11,10 @@
 		<!-- Properties                                                          -->
 		<!-- =================================================================== -->
 
+		<property file="version.properties"/>
+		
 		<property name="Name"     value="Oddjob Assembly"/>
 		<property name="name"     value="oj-assembly"/>
-		<property name="build.version"  value="0.0.0"/>
 
 		<property name="oddjob.src"          value="../oddjob"/>
 		
@@ -83,7 +84,6 @@
 			<fileset dir=".">
 				<include name="*.xml"/>
 				<exclude name="build.xml"/>
-				<exclude name="our-ant"/>
 			</fileset>
 		</copy>
 
@@ -91,9 +91,14 @@
 			<fileset dir="lib"/>
 		</copy>
 
+		<copy todir="${to.dir}/antlibs">
+			<fileset dir="antlibs"/>
+		</copy>
+
 		<copy todir="${to.dir}">
 			<fileset dir=".">
 				<include name="build.xml"/>
+				<include name="version.properties"/>
 			</fileset>
 		</copy>
 

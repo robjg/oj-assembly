@@ -6,6 +6,8 @@
  			<xml>
  				<tasks>
  				
+        <property file="${global.projDir}/oj-assembly/version.properties"/>
+    
 		<path id="classpath">
 			<fileset dir="${allants.dist.bin.dir}/lib">
 				<include name="*.jar"/>
@@ -13,27 +15,15 @@
 			<fileset dir="${allants.dist.bin.dir}/opt/lib">
 				<include name="*.jar"/>
 			</fileset>
-			<fileset dir="${allants.dist.src.dir}/oj-ant/lib">
-				<include name="*.jar"/>
-			</fileset>
-			<fileset dir="${allants.dist.src.dir}/oj-hsql/lib">
-				<include name="*.jar"/>
-			</fileset>
-            <fileset dir="${allants.dist.bin.dir}/oddballs/oj-mail/lib">
-                <include name="*.jar"/>
-            </fileset>
-            <fileset dir="${allants.dist.bin.dir}/oddballs/oj-net/lib">
-                <include name="*.jar"/>
+            <fileset dir="${allants.dist.bin.dir}/oddballs/">
+              <include name="*/lib/*.jar"/>
             </fileset>
 		</path>
 		
 		<path id="sourcepath">
-            <pathelement location="${global.projDir}/arooa/build/src"/>
-			<pathelement location="${global.projDir}/oddjob/build/src"/>
-			<pathelement location="${global.projDir}/oj-ant/build/src/"/>
-			<pathelement location="${global.projDir}/oj-hsql/build/src/"/>
-            <pathelement location="${global.projDir}/oj-mail/build/src/"/>
-            <pathelement location="${global.projDir}/oj-net/build/src/"/>
+            <dirset dir="${global.projDir}">
+                <include name="*/build/src"/>
+            </dirset>
 		</path>
 		
         <!--  Tests required for resources. 
@@ -43,11 +33,9 @@
             <path refid="classpath"/>
             <pathelement location="${global.projDir}/arooa/build/test"/>
             <pathelement location="${global.projDir}/arooa/test/java"/>
-            <pathelement location="${global.projDir}/oddjob/build/test/classes"/>
-            <pathelement location="${global.projDir}/oj-ant/build/test/classes"/>
-            <pathelement location="${global.projDir}/oj-hsql/build/test/"/>
-            <pathelement location="${global.projDir}/oj-mail/build/test/"/>
-            <pathelement location="${global.projDir}/oj-net/build/test/"/>
+            <dirset dir="${global.projDir}">
+                <include name="*/build/test/classes"/>
+            </dirset>
         </path>
         
 		<mkdir dir="${allants.dist.bin.dir}/docs/api" />
@@ -59,8 +47,8 @@
              version="true"
              use="false"
              noindex="true"
-             windowtitle="Oddjob ${global.ojVersion} API"
-             doctitle="Oddjob ${global.ojVersion}">
+             windowtitle="Oddjob ${project.version} API"
+             doctitle="Oddjob ${project.version}">
 			<classpath refid="classpath"/>
 			<link href="http://java.sun.com/javase/6/docs/api/"/>
             <taglet name="org.oddjob.tools.taglet.PropertyTaglet">

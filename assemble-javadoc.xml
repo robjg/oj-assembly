@@ -40,7 +40,8 @@
         
 		<mkdir dir="${allants.dist.bin.dir}/docs/api" />
 
-		<javadoc packagenames="org.oddjob.*"
+		<javadoc useexternalfile="true" 
+             packagenames="org.oddjob.*"
              sourcepathref="sourcepath"
 			 destdir="${allants.dist.bin.dir}/docs/api"
              author="true"

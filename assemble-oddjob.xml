@@ -4,9 +4,9 @@
         <sequential name="Assembley Sequence">
             <jobs>
                 <properties name="Load Version File">
-                  <input>
-                    <file file="${this.dir}/version.properties"/>
-                  </input>
+                    <input>
+                        <file file="${this.dir}/version.properties"/>
+                    </input>
                 </properties>
                 <properties id="allants" name="Ant Properties">
                     <values>
@@ -50,6 +50,16 @@
                         </properties>
                     </properties>
                 </oddjob>
+                <variables id="vars">
+                    <path>
+                        <files>
+                            <list>
+                                <files files="${global.projDir}/oj-assembly/lib/*.jar"/>
+                                <files files="${global.projDir}/arooa/test/lib/junit.jar"/>
+                            </list>
+                        </files>
+                    </path>
+                </variables>
                 <oddjob file="${this.dir}/assemble-oddjob-ants.xml" id="run-all-tests" name="All Tests">
                     <properties>
                         <properties>
@@ -58,6 +68,9 @@
                             </values>
                         </properties>
                     </properties>
+                    <export>
+                        <value key="vars" value="${vars}"/>
+                    </export>
                 </oddjob>
                 <oddjob file="${this.dir}/assemble-oddjob-ants.xml" id="run-dist-src" name="Dist Src">
                     <properties>
@@ -76,6 +89,9 @@
                             </values>
                         </properties>
                     </properties>
+                    <export>
+                        <value key="vars" value="${vars}"/>
+                    </export>
                 </oddjob>
                 <oddjob file="${this.dir}/assemble-javadoc.xml" id="build-javadoc" name="Build Javadoc"/>
                 <oddjob file="${this.dir}/assemble-reference.xml" id="build-reference" name="Build Reference"/>

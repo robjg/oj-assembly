@@ -9,17 +9,7 @@
                     </classLoader>
                 </bean>
                 <check name="Check tools.jar is on Class Path" value="${find-tools.location}"/>
-                <variables id="vars">
-                    <path>
-                        <files>
-                            <list>
-                                <files files="${global.projDir}/oj-assembly/lib/*.jar"/>
-                                <files files="${global.projDir}/arooa/test/lib/junit.jar"/>
-                            </list>
-                        </files>
-                    </path>
-                </variables>
-                <ant classPath="${vars.path}" id="classpath-test-ant" name="Classpath Test Ant">
+                <ant id="classpath-test-ant" classPath="${vars.path}" name="Classpath Test Ant">
                     <tasks>
                         <xml>
                             <tasks>

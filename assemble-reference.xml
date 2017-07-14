@@ -20,9 +20,12 @@
 		</path>
 		
 		<path id="sourcepath">
-            <dirset dir="${global.projDir}">
-                <include name="*/build/src"/>
-            </dirset>
+            <pathelement location="${global.projDir}/arooa/build/src"/>
+            <pathelement location="${global.projDir}/oddjob/build/src"/>
+            <pathelement location="${global.projDir}/oj-ant/build/src/"/>
+            <pathelement location="${global.projDir}/oj-hsql/build/src/"/>
+            <pathelement location="${global.projDir}/oj-mail/build/src/"/>
+            <pathelement location="${global.projDir}/oj-net/build/src/"/>
 		</path>
 		
         <!--  Tests required for resources. 

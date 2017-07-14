@@ -1,0 +1,13 @@
+<ivy-module version="2.0">
+  <info organisation="uk.co.rgordon" module="oj-assembly" status="integration"/>
+
+	<configurations>
+        <conf name="default" visibility="public"></conf>
+	</configurations>
+        
+	<dependencies>
+        <dependency org="org.apache.ant" name="ant-junit" rev="1.9.9"
+            conf="default->default" transitive="false"/>
+	</dependencies>
+  
+</ivy-module>

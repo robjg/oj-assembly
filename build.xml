@@ -1,5 +1,10 @@
-<project basedir="." name="Oddball Assembly">
+<project xmlns:ivy="antlib:org.apache.ivy.ant"
+	basedir="." name="Oddball Assembly">
 
+    <taskdef resource="org/apache/ivy/ant/antlib.xml"
+                     uri="antlib:org.apache.ivy.ant" 
+        classpath="../oj-assembly/antlibs/ivy-2.4.0.jar"/>
+	
 	<!-- =================================================================== -->
 	<!-- Initialization target                                               -->
 	<!-- =================================================================== -->
@@ -18,6 +23,8 @@
 
 		<property name="oddjob.src"          value="../oddjob"/>
 		
+        <property name="lib.dir"      value="./lib"/>
+        	
 		<echo message="--------------------------------------------------------------"/>
 		<echo message="            ${Name} ${build.version}                                "/>
 		<echo message="--------------------------------------------------------------"/>
@@ -39,10 +46,20 @@
 
 	</target>
 
+    <!-- =================================================================== -->
+    <!-- Prepare for the build                                               -->
+    <!-- =================================================================== -->
+    
+    <target name="prepare" depends="init">
+
+        <ivy:retrieve conf="default"/>
+
+    </target>
+
 	<!-- =================================================================== -->
 	<!-- Creates the jar file                                                -->
 	<!-- =================================================================== -->
-	<target name="jar" description="Empty Standard Target.">
+	<target name="jar" depends="prepare" description="Empty Standard Target.">
 		
 		<echo message="Nothing to do."/>
 		
@@ -87,9 +104,11 @@
 			</fileset>
 		</copy>
 
-		<copy todir="${to.dir}/lib">
-			<fileset dir="lib"/>
-		</copy>
+        <copy todir="${to.dir}/lib">
+            <fileset dir="${lib.dir}">
+                <exclude name='*.jar'/>
+            </fileset>
+        </copy>
 
 		<copy todir="${to.dir}/antlibs">
 			<fileset dir="antlibs"/>
@@ -98,6 +117,8 @@
 		<copy todir="${to.dir}">
 			<fileset dir=".">
 				<include name="build.xml"/>
+                <include name="ivy.xml"/>
+                <include name="ivysettings.xml"/>
 				<include name="version.properties"/>
 			</fileset>
 		</copy>
@@ -136,7 +157,14 @@
 	
 	<target name="clean" depends="init" description="Empty Standard Target.">
 		
-		<echo message="Nothing to do."/>
+		<!-- Fails because jar is used by assembly itself. When updating version
+		     manual cleanup required.
+        <delete>
+            <fileset dir="${lib.dir}">
+                 <include name="*.jar"/>
+            </fileset>
+        </delete>
+        -->
 		
 	</target>
 

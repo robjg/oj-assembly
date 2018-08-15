@@ -31,7 +31,7 @@
         <!--  Tests required for resources. 
                 arooa test java required for example code. -->
 		<path id="docletpath">
-			<pathelement location="${global.projDir}/oddjob/build/tools/classes"/>
+			<pathelement location="${global.projDir}/oj-doc/build/classes"/>
 			<path refid="classpath"/>
             <pathelement location="${global.projDir}/arooa/test/java"/>
             <dirset dir="${global.projDir}">

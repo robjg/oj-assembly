@@ -22,6 +22,7 @@
 		
 		<path id="sourcepath">
             <pathelement location="${global.projDir}/arooa/build/src"/>
+            <pathelement location="${global.projDir}/run-oddjob/build/src"/>
             <pathelement location="${global.projDir}/oddjob/build/src"/>
             <pathelement location="${global.projDir}/oj-ant/build/src/"/>
             <pathelement location="${global.projDir}/oj-hsql/build/src/"/>
@@ -32,10 +33,9 @@
         <!--  Tests required for resources. 
                 arooa test java required for example code. -->
         <path id="tagletpath">
-            <pathelement location="${global.projDir}/oddjob/build/tools/classes"/>
+            <pathelement location="${global.projDir}/oj-doc/build/classes"/>
             <path refid="classpath"/>
-            <pathelement location="${global.projDir}/arooa/build/test"/>
-            <pathelement location="${global.projDir}/arooa/test/java"/>
+            <pathelement location="${global.projDir}/arooa/src/test/java"/>
             <dirset dir="${global.projDir}">
                 <include name="*/build/test/classes"/>
             </dirset>

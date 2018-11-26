@@ -60,6 +60,7 @@
     <module>../arooa</module>
     <module>../run-oddjob</module>
     <module>../oddjob</module>
+    <module>../oj-web</module>
   </modules>
 
   <dependencyManagement>

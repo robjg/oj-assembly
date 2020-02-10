@@ -58,8 +58,8 @@
 
   <modules>
     <module>../arooa</module>
-    <module>../run-oddjob</module>
     <module>../oddjob</module>
+    <module>../run-oddjob</module>
     <module>../oj-web</module>
   </modules>
 
@@ -101,8 +101,6 @@
         <artifactId>hsqldb</artifactId>
         <version>${hsql.version}</version>
       </dependency>
-
-
 
       <dependency>
         <groupId>junit</groupId>

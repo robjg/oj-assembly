@@ -11,31 +11,6 @@
   <description>Assemble Oddjob.</description>
   <url>http://rgordon.co.uk/oddjob</url>
 
-  <properties>
-    <maven.compiler.source>1.8</maven.compiler.source>
-    <maven.compiler.target>1.8</maven.compiler.target>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    
-    <slf4j.version>1.7.25</slf4j.version>
-    <log4j.version>1.2.17</log4j.version>
-    <logback.version>1.2.3</logback.version>
-
-    <javax.inject.version>1</javax.inject.version>
-
-    <beanutils.version>1.9.2</beanutils.version>
-    <commons-io.version>2.4</commons-io.version>
-
-    <antlr.version>4.7.1</antlr.version>
-    
-    <hsql.version>2.3.3</hsql.version>
-    <jackson.version>2.9.6</jackson.version>
-
-    <junit.version>4.12</junit.version>
-    <mockito.version>1.10.19</mockito.version>
-    <xmlunit.version>2.5.0</xmlunit.version>
-
-  </properties>
-
   <licenses>
     <license>
       <name>The Apache Software License, Version 2.0</name>
@@ -45,9 +20,10 @@
   </licenses>
 
   <scm>
-    <url>https://github.com/robjg/arooa</url>
+    <url>https://github.com/robjg/oj-assembly</url>
     <connection>scm:git:git://github.com/robjg/oj-assembly.git</connection>
   </scm>
+
   <developers>
     <developer>
       <id>rob</id>
@@ -57,98 +33,11 @@
   </developers>
 
   <modules>
+    <module>../oj-parent</module>
     <module>../arooa</module>
     <module>../oddjob</module>
     <module>../run-oddjob</module>
     <module>../oj-web</module>
   </modules>
-
-  <dependencyManagement>
-    <dependencies>
-
-      <dependency>
-        <groupId>org.slf4j</groupId>
-        <artifactId>slf4j-api</artifactId>
-        <version>${slf4j.version}</version>
-      </dependency>
-
-      <dependency>
-        <groupId>ch.qos.logback</groupId>
-        <artifactId>logback-classic</artifactId>
-        <version>${logback.version}</version>
-      </dependency>
-
-      <dependency>
-        <groupId>log4j</groupId>
-        <artifactId>log4j</artifactId>
-        <version>${log4j.version}</version>
-      </dependency>
-
-      <dependency>
-        <groupId>javax.inject</groupId>
-        <artifactId>javax.inject</artifactId>
-        <version>${javax.inject.version}</version>
-      </dependency>
-
-      <dependency>
-        <groupId>commons-beanutils</groupId>
-        <artifactId>commons-beanutils</artifactId>
-        <version>${beanutils.version}</version>
-      </dependency>
-            
-      <dependency>
-        <groupId>org.hsqldb</groupId>
-        <artifactId>hsqldb</artifactId>
-        <version>${hsql.version}</version>
-      </dependency>
-
-      <dependency>
-        <groupId>junit</groupId>
-        <artifactId>junit</artifactId>
-        <version>${junit.version}</version>
-        <scope>test</scope>
-      </dependency>
-
-      <dependency>
-        <groupId>org.mockito</groupId>
-        <artifactId>mockito-all</artifactId>
-        <version>${mockito.version}</version>
-        <scope>test</scope>
-      </dependency>
-
-      <dependency>
-        <groupId>org.xmlunit</groupId>
-        <artifactId>xmlunit-core</artifactId>
-        <version>${xmlunit.version}</version>
-        <scope>test</scope>
-      </dependency>
-
-      <dependency>
-        <groupId>org.xmlunit</groupId>
-        <artifactId>xmlunit-matchers</artifactId>
-        <version>${xmlunit.version}</version>
-        <scope>test</scope>
-      </dependency>
-
-      <dependency>
-        <groupId>commons-io</groupId>
-        <artifactId>commons-io</artifactId>
-        <version>${commons-io.version}</version>
-      </dependency>
-
-      <dependency>
-         <groupId>org.antlr</groupId>
-         <artifactId>antlr4-runtime</artifactId>
-         <version>${antlr.version}</version>
-       </dependency>
-
-      <dependency>
-        <groupId>com.fasterxml.jackson.core</groupId>
-        <artifactId>jackson-databind</artifactId>
-        <version>2.9.6</version>
-      </dependency>
-
-     </dependencies>
-  </dependencyManagement>
 
 </project>

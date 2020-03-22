@@ -2,3 +2,5 @@
 /work
 /.idea
 *.iml
+/.settings/
+/.project

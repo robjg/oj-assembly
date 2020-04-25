@@ -3,7 +3,7 @@
 
     <taskdef resource="org/apache/ivy/ant/antlib.xml"
                      uri="antlib:org.apache.ivy.ant" 
-        classpath="../oj-assembly/antlibs/ivy-2.4.0.jar"/>
+        classpath="../oj-assembly/antlibs/ivy-2.5.0.jar"/>
 	
 	<!-- =================================================================== -->
 	<!-- Initialization target                                               -->
@@ -32,17 +32,6 @@
 		<echo message="using build file ${ant.file}"/>
 		<echo message="oddjob.src is ${oddjob.src}"/>
 		<echo message="--------------------------------------------------------------"/>
-
-		<filter token="Name"    value="${Name}"/>
-		<filter token="name"    value="${name}"/>
-		<filter token="version" value="${build.version}"/>
-		<filter token="date"    value="${TODAY}"/>
-		<filter token="log"     value="true"/>
-		<filter token="verbose" value="true"/>
-		<filter token="reference" value="../reference"/>
-		<filter token="javadoc" value="../api"/>
-		<filter token="userguide" value="../userguide"/>
-		<filter token="devguide" value="../devguide"/>
 
 	</target>
 
@@ -96,19 +85,6 @@
           description="Prepares the source distribution">
 
 		<property name="to.dir" value="${dist.src.dir}/${name}"/>
-		
-		<copy todir="${to.dir}" filtering="on">
-			<fileset dir=".">
-				<include name="*.xml"/>
-				<exclude name="build.xml"/>
-			</fileset>
-		</copy>
-
-        <copy todir="${to.dir}/lib">
-            <fileset dir="${lib.dir}">
-                <exclude name='*.jar'/>
-            </fileset>
-        </copy>
 
 		<copy todir="${to.dir}/antlibs">
 			<fileset dir="antlibs"/>
@@ -116,10 +92,11 @@
 
 		<copy todir="${to.dir}">
 			<fileset dir=".">
-				<include name="build.xml"/>
-                <include name="ivy.xml"/>
-                <include name="ivysettings.xml"/>
+				<include name="*.xml"/>
 				<include name="version.properties"/>
+				<include name="LICENSE.txt"/>
+				<include name="NOTICE.txt"/>
+				<include name="README.md"/>
 			</fileset>
 		</copy>
 

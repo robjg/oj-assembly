@@ -6,8 +6,8 @@
 	</configurations>
         
 	<dependencies>
-        <dependency org="org.apache.ant" name="ant-junit" rev="1.10.1"
-            conf="default->default" transitive="false"/>
+		<dependency org="junit" name="junit" rev="${junit.version}"
+					conf="default->default"/>
 	</dependencies>
   
 </ivy-module>

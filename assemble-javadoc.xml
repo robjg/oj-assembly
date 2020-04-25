@@ -37,7 +37,7 @@
             <path refid="classpath"/>
             <pathelement location="${global.projDir}/arooa/src/test/java"/>
             <dirset dir="${global.projDir}">
-                <include name="*/build/test/classes"/>
+                <include name="*/build/test-classes"/>
             </dirset>
         </path>
         

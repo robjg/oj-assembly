@@ -1,5 +1,6 @@
 /persist
 /work
+/lib
 /.idea
 *.iml
 /.settings/

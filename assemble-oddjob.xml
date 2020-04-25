@@ -10,7 +10,7 @@
                 </properties>
                 <properties id="allants" name="Ant Properties">
                     <values>
-                        <value key="assembly.projects" value="arooa, oddjob, run-oddjob, oj-doc, oj-ant, oj-net, oj-mail, oj-hsql, oj-web, oj-examples, oj-assembly"/>
+                        <value key="assembly.projects" value="arooa, oddjob, run-oddjob, oj-doc, oj-ant, oj-net, oj-web, oj-assembly"/>
                         <value key="allants.dist.dir" value="${global.workDir}/ojdist"/>
                         <value key="allants.dist.dir" value="${global.workDir}/ojdist"/>
                         <value key="allants.dist.target" value="${global.workDir}/ojdist"/>
@@ -55,7 +55,6 @@
                         <files>
                             <list>
                                 <files files="${global.projDir}/oj-assembly/lib/*.jar"/>
-                                <files files="${global.projDir}/arooa/test/lib/junit.jar"/>
                             </list>
                         </files>
                     </path>

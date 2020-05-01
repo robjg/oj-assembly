@@ -37,7 +37,13 @@
     <module>../arooa</module>
     <module>../oddjob</module>
     <module>../run-oddjob</module>
+    <module>../oj-doc</module>
     <module>../oj-web</module>
+    <module>../oj-ant</module>
+    <module>../oj-net</module>
+    <module>../oj-hsql</module>
+    <module>../oj-mail</module>
+    <module>../oj-examples</module>
   </modules>
 
 </project>

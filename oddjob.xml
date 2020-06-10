@@ -11,13 +11,6 @@
 	             </properties>
                 <mkdir dir="${this.dir}/persist"/>
                 <oddjob file="${this.dir}/assemble-oddjob.xml" id="assemble-oddjob" name="Oddjob Assembly">
-                    <descriptorFactory>
-                        <oddballs>
-                            <files>
-                                <file file="${this.dir}/our-ant"/>
-                            </files>
-                        </oddballs>
-                    </descriptorFactory>
                     <persister>
                         <file-persister dir="${this.dir}/persist"/>
                     </persister>

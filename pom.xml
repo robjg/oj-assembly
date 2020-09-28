@@ -43,6 +43,7 @@
     <module>../oj-net</module>
     <module>../oj-hsql</module>
     <module>../oj-mail</module>
+    <module>../oj-ssh</module>
     <module>../oj-examples</module>
   </modules>
 

@@ -28,6 +28,8 @@
             <pathelement location="${global.projDir}/oj-mail/build/src/"/>
             <pathelement location="${global.projDir}/oj-net/build/src/"/>
 			<pathelement location="${global.projDir}/oj-web/build/src/"/>
+			<pathelement location="${global.projDir}/oj-ssh/build/src/"/>
+			<pathelement location="${global.projDir}/oj-aws/build/src/"/>
 		</path>
 		
         <!--  Tests required for resources. 

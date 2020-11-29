@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+if [ -z "$OJ_GITHUB_USER" ]; then export OJ_GITHUB_USER=https://github.com/robjg; fi;
+
+while read module; do
+  echo "git clone $OJ_GITHUB_USER/$module"
+done <modules.txt

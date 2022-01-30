@@ -133,6 +133,17 @@
                                 </properties>
                             </properties>
                         </oddjob>
+                        <ant classPath="${vars.path}" name="Single Ant Test">
+                            <tasks>
+                                <xml>
+                                    <tasks>
+                                        <ant antfile="${global.projDir}/arooa/build.xml" inheritAll="false" target="single-test">
+                                            <property name="junit.test" value="org.oddjob.arooa.runtime.ScriptEvaluatorTest"/>
+                                        </ant>
+                                    </tasks>
+                                </xml>
+                            </tasks>
+                        </ant>
                     </jobs>
                 </folder>
             </jobs>

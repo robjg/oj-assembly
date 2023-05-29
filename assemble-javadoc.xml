@@ -1,90 +1,66 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <oddjob>
- <job>
- 	<ant id="build-javadoc">
- 		<tasks>
- 			<xml>
- 				<tasks>
- 				
-        <property file="${global.projDir}/oj-assembly/version.properties"/>
-    
-		<path id="classpath">
-			<fileset dir="${allants.dist.bin.dir}/lib">
-				<include name="*.jar"/>
-			</fileset>
-			<fileset dir="${allants.dist.bin.dir}/opt/lib">
-				<include name="*.jar"/>
-			</fileset>
-            <fileset dir="${allants.dist.bin.dir}/oddballs/">
-              <include name="*/lib/*.jar"/>
-            </fileset>
-		</path>
-		
-		<path id="sourcepath">
-            <pathelement location="${global.projDir}/arooa/build/src"/>
-            <pathelement location="${global.projDir}/run-oddjob/build/src"/>
-            <pathelement location="${global.projDir}/oddjob/build/src"/>
-            <pathelement location="${global.projDir}/oj-ant/build/src/"/>
-            <pathelement location="${global.projDir}/oj-hsql/build/src/"/>
-            <pathelement location="${global.projDir}/oj-mail/build/src/"/>
-            <pathelement location="${global.projDir}/oj-net/build/src/"/>
-            <pathelement location="${global.projDir}/oj-web/build/src/"/>
-            <pathelement location="${global.projDir}/oj-ssh/build/src/"/>
-            <pathelement location="${global.projDir}/oj-aws/build/src/"/>
-		</path>
-		
-        <!--  Tests required for resources. 
-                arooa test java required for example code. -->
-        <path id="tagletpath">
-            <pathelement location="${global.projDir}/oj-doc/build/classes"/>
-            <path refid="classpath"/>
-            <pathelement location="${global.projDir}/arooa/src/test/java"/>
-            <dirset dir="${global.projDir}">
-                <include name="*/build/test-classes"/>
-            </dirset>
-        </path>
-        
-		<mkdir dir="${allants.dist.bin.dir}/docs/api" />
-
-		<javadoc useexternalfile="true" 
-             packagenames="org.oddjob.*"
-             sourcepathref="sourcepath"
-			 destdir="${allants.dist.bin.dir}/docs/api"
-             author="true"
-             version="true"
-             use="false"
-             noindex="true"
-             windowtitle="Oddjob ${project.version} API"
-             doctitle="Oddjob ${project.version}">
-			<classpath refid="classpath"/>
-			<link href="http://java.sun.com/javase/6/docs/api/"/>
-            <taglet name="org.oddjob.tools.taglet.PropertyTaglet">
-                <path refid="tagletpath"/>
-            </taglet>
-            <taglet name="org.oddjob.tools.taglet.DescriptionTaglet">
-                <path refid="tagletpath"/>
-            </taglet>
-            <taglet name="org.oddjob.tools.taglet.ExampleTaglet">
-                <path refid="tagletpath"/>
-            </taglet>
-            <taglet name="org.oddjob.tools.taglet.RequiredTaglet">
-                <path refid="tagletpath"/>
-            </taglet>
-			<tag name="see"/>
-			<tag name="author"/>
-			<tag name="version"/>
-			<tag name="since"/>
-			<tag name="param"/>
-			<tag name="return"/>
-			<tag name="throws"/>
-            <!-- Required for Javadoc 8  
-              arg value="-Xdoclint:none"/>
-            -->
-		</javadoc>
-		
- 				</tasks>
- 			</xml>
- 		</tasks>
- 	</ant>
- </job>
+    <job>
+        <ant id="build-javadoc">
+            <tasks>
+                <xml>
+                    <tasks>
+                        <property file="${global.projDir}/oj-assembly/version.properties"/>
+                        <path id="classpath">
+                            <fileset dir="${allants.dist.bin.dir}/lib">
+                                <include name="*.jar"/>
+                            </fileset>
+                            <fileset dir="${allants.dist.bin.dir}/opt/lib">
+                                <include name="*.jar"/>
+                            </fileset>
+                            <fileset dir="${allants.dist.bin.dir}/oddballs/">
+                                <include name="*/lib/*.jar"/>
+                            </fileset>
+                        </path>
+                        <path id="sourcepath">
+                            <pathelement location="${global.projDir}/arooa/build/src"/>
+                            <pathelement location="${global.projDir}/run-oddjob/build/src"/>
+                            <pathelement location="${global.projDir}/oddjob/build/src"/>
+                            <pathelement location="${global.projDir}/oj-ant/build/src/"/>
+                            <pathelement location="${global.projDir}/oj-hsql/build/src/"/>
+                            <pathelement location="${global.projDir}/oj-mail/build/src/"/>
+                            <pathelement location="${global.projDir}/oj-net/build/src/"/>
+                            <pathelement location="${global.projDir}/oj-web/build/src/"/>
+                            <pathelement location="${global.projDir}/oj-ssh/build/src/"/>
+                        </path>
+                        <path id="tagletpath">
+                            <pathelement location="${global.projDir}/oj-doc/build/classes"/>
+                            <path refid="classpath"/>
+                            <pathelement location="${global.projDir}/arooa/src/test/java"/>
+                            <dirset dir="${global.projDir}">
+                                <include name="*/build/test-classes"/>
+                            </dirset>
+                        </path>
+                        <mkdir dir="${allants.dist.bin.dir}/docs/api"/>
+                        <javadoc additionalparam="-Xdoclint:none --ignore-source-errors" author="true"
+                                 destdir="${allants.dist.bin.dir}/docs/api" doctitle="Oddjob ${project.version}"
+                                 failonerror="true" noindex="true" packagenames="org.oddjob.*"
+                                 sourcepathref="sourcepath" use="false" useexternalfile="true" version="true"
+                                 windowtitle="Oddjob ${project.version} API">
+                            <classpath refid="classpath"/>
+                            <tag name="oddjob.property" scope="methods,fields" description="Reference Property:"/>
+                            <taglet name="org.oddjob.doc.taglet.DescriptionTaglet">
+                                <path refid="tagletpath"/>
+                            </taglet>
+                            <tag name="oddjob.required" scope="methods,fields" description="Required:"/>
+                            <taglet name="org.oddjob.doc.taglet.ExampleTaglet">
+                                <path refid="tagletpath"/>
+                            </taglet>
+                            <taglet name="org.oddjob.doc.taglet.XmlResourceTaglet">
+                                <path refid="tagletpath"/>
+                            </taglet>
+                            <taglet name="org.oddjob.doc.taglet.PlainTextResourceTaglet">
+                                <path refid="tagletpath"/>
+                            </taglet>
+                        </javadoc>
+                    </tasks>
+                </xml>
+            </tasks>
+        </ant>
+    </job>
 </oddjob>

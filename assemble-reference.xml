@@ -1,62 +1,64 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <oddjob>
- <job>
- 	<ant id="build-reference" messageLevel="VERBOSE">
- 		<tasks>
- 			<xml>
- 				<tasks>
- 				
-		<path id="classpath">
-			<fileset file="${allants.dist.bin.dir}/run-oddjob.jar"/>
-			<fileset dir="${allants.dist.bin.dir}/lib">
-				<include name="*.jar"/>
-			</fileset>
-			<fileset dir="${allants.dist.bin.dir}/opt/lib">
-				<include name="*.jar"/>
-			</fileset>
-			<fileset dir="${allants.dist.bin.dir}/oddballs/">
-				<include name="*/lib/*.jar"/>
-			</fileset>
-		</path>
-		
-		<path id="sourcepath">
-            <pathelement location="${global.projDir}/arooa/build/src"/>
-            <pathelement location="${global.projDir}/run-oddjob/build/src"/>
-            <pathelement location="${global.projDir}/oddjob/build/src"/>
-            <pathelement location="${global.projDir}/oj-ant/build/src/"/>
-            <pathelement location="${global.projDir}/oj-hsql/build/src/"/>
-            <pathelement location="${global.projDir}/oj-mail/build/src/"/>
-            <pathelement location="${global.projDir}/oj-net/build/src/"/>
-			<pathelement location="${global.projDir}/oj-web/build/src/"/>
-			<pathelement location="${global.projDir}/oj-ssh/build/src/"/>
-			<pathelement location="${global.projDir}/oj-aws/build/src/"/>
-		</path>
-		
-        <!--  Tests required for resources. 
-                arooa test java required for example code. -->
-		<path id="docletpath">
-			<pathelement location="${global.projDir}/oj-doc/build/classes"/>
-			<path refid="classpath"/>
-            <pathelement location="${global.projDir}/arooa/src/test/java"/>
-            <dirset dir="${global.projDir}">
-                <include name="*/build/test-classes"/>
-            </dirset>
-		</path>
-		
-		<mkdir dir="${allants.dist.bin.dir}/docs/reference" />
+    <job>
+        <ant id="build-reference" messageLevel="VERBOSE">
+            <tasks>
+                <xml>
+                    <tasks>
 
-		<javadoc packagenames="org.oddjob.*"
-             sourcepathref="sourcepath"
-			 destdir="${allants.dist.bin.dir}/docs/reference"
-			 docletpathref="docletpath"
-			 classpathref="classpath"
-			 doclet="org.oddjob.doclet.ManualDoclet"
-			 access="private">
-		</javadoc>
-		
- 				</tasks>
- 			</xml>
- 		</tasks>
- 	</ant>
- </job>
+                        <path id="classpath">
+                            <fileset file="${allants.dist.bin.dir}/run-oddjob.jar"/>
+                            <fileset dir="${allants.dist.bin.dir}/lib">
+                                <include name="*.jar"/>
+                            </fileset>
+                            <fileset dir="${allants.dist.bin.dir}/opt/lib">
+                                <include name="*.jar"/>
+                            </fileset>
+                            <fileset dir="${allants.dist.bin.dir}/oddballs/">
+                                <include name="*/lib/*.jar"/>
+                            </fileset>
+                        </path>
+
+                        <path id="sourcepath">
+                            <pathelement location="${global.projDir}/arooa/build/src"/>
+                            <pathelement location="${global.projDir}/run-oddjob/build/src"/>
+                            <pathelement location="${global.projDir}/oddjob/build/src"/>
+                            <pathelement location="${global.projDir}/oj-ant/build/src/"/>
+                            <pathelement location="${global.projDir}/oj-hsql/build/src/"/>
+                            <pathelement location="${global.projDir}/oj-mail/build/src/"/>
+                            <pathelement location="${global.projDir}/oj-net/build/src/"/>
+                            <pathelement location="${global.projDir}/oj-web/build/src/"/>
+                            <pathelement location="${global.projDir}/oj-ssh/build/src/"/>
+                            <pathelement location="${global.projDir}/oj-aws/build/src/"/>
+                        </path>
+
+                        <!--  Tests required for resources.
+                                arooa test java required for example code. -->
+                        <path id="docletpath">
+                            <pathelement location="${global.projDir}/oj-doc/build/classes"/>
+                            <path refid="classpath"/>
+                            <pathelement location="${global.projDir}/arooa/src/test/java"/>
+                            <dirset dir="${global.projDir}">
+                                <include name="*/build/test-classes"/>
+                            </dirset>
+                        </path>
+
+                        <mkdir dir="${allants.dist.bin.dir}/docs/reference"/>
+
+                        <javadoc additionalparam="--ignore-source-errors"
+                                 packagenames="org.oddjob.*"
+                                 sourcepathref="sourcepath"
+                                 destdir="${allants.dist.bin.dir}/docs/reference"
+                                 docletpathref="docletpath"
+                                 classpathref="classpath"
+                                 doclet="org.oddjob.doc.doclet.ReferenceDoclet"
+                                 access="private"
+                                 failonerror="true">
+                        </javadoc>
+
+                    </tasks>
+                </xml>
+            </tasks>
+        </ant>
+    </job>
 </oddjob>

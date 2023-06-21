@@ -8,9 +8,9 @@
                         <file file="${this.dir}/version.properties"/>
                     </input>
                 </properties>
-                <properties id="allants" name="Ant Properties">
+                <properties id="assemble-properties" name="Assemble Properties">
                     <values>
-                        <value key="assembly.projects" value="arooa, oddjob, run-oddjob, oj-doc, oj-ant, oj-net, oj-mail, oj-hsql, oj-ssh, oj-reactjs, oj-web, oj-examples, oj-assembly"/>
+                        <value key="assembly.projects" value="oj-parent, arooa, oddjob, run-oddjob, oj-doc, oj-ant, oj-net, oj-mail, oj-ssh, oj-reactjs, oj-web, oj-examples, oj-assembly"/>
                         <value key="allants.dist.dir" value="${global.workDir}/ojdist"/>
                         <value key="allants.dist.dir" value="${global.workDir}/ojdist"/>
                         <value key="allants.dist.target" value="${global.workDir}/ojdist"/>
@@ -18,6 +18,8 @@
                         <value key="allants.dist.src.dir" value="${allants.dist.dir}/source/oddjob-src"/>
                         <value key="allants.dist.bin.dir" value="${allants.dist.dir}/bin/oddjob"/>
                         <value key="default.build.target" value="install"/>
+                        <file file="c:/users/rob/java/apache-maven-3.9.2" key="maven.home"/>
+                        <file file="${global.projDir}/oj-assembly" key="oddjob.assemble.home"/>
                     </values>
                 </properties>
                 <delete force="true" id="delete-dist">
@@ -41,15 +43,6 @@
                         <mkdir dir="${allants.dist.bin.dir}"/>
                     </jobs>
                 </sequential>
-                <oddjob file="${this.dir}/assemble-oddjob-ants.xml" id="run-all-jars" name="All Jars">
-                    <properties>
-                        <properties>
-                            <values>
-                                <value key="thisant.target" value="${default.build.target}"/>
-                            </values>
-                        </properties>
-                    </properties>
-                </oddjob>
                 <variables id="vars">
                     <path>
                         <files>
@@ -59,17 +52,14 @@
                         </files>
                     </path>
                 </variables>
-                <oddjob file="${this.dir}/assemble-oddjob-ants.xml" id="run-all-tests" name="All Tests">
+                <oddjob file="${this.dir}/assemble-all-oddjobs.xml" id="assemble-all-install" name="Assemble All Install">
                     <properties>
                         <properties>
                             <values>
-                                <value key="thisant.target" value="all-tests"/>
+                                <value key="oddjob.assemble.target" value="${default.build.target}"/>
                             </values>
                         </properties>
                     </properties>
-                    <export>
-                        <value key="vars" value="${vars}"/>
-                    </export>
                 </oddjob>
                 <oddjob file="${this.dir}/assemble-oddjob-ants.xml" id="run-dist-src" name="Dist Src">
                     <properties>
@@ -102,33 +92,6 @@
                                 <properties>
                                     <values>
                                         <value key="thisant.target" value="jar"/>
-                                    </values>
-                                </properties>
-                            </properties>
-                        </oddjob>
-                        <oddjob file="${this.dir}/assemble-oddjob-ants.xml" id="run-maven-install" name="Maven Install">
-                            <properties>
-                                <properties>
-                                    <values>
-                                        <value key="thisant.target" value="maven-install"/>
-                                    </values>
-                                </properties>
-                            </properties>
-                        </oddjob>
-                        <oddjob file="${this.dir}/assemble-oddjob-ants.xml" id="run-maven-deploy" name="Maven Deploy Snapshot">
-                            <properties>
-                                <properties>
-                                    <values>
-                                        <value key="thisant.target" value="maven-deploy"/>
-                                    </values>
-                                </properties>
-                            </properties>
-                        </oddjob>
-                        <oddjob file="${this.dir}/assemble-oddjob-ants.xml" id="run-maven-stage" name="Maven Stage">
-                            <properties>
-                                <properties>
-                                    <values>
-                                        <value key="thisant.target" value="maven-stage"/>
                                     </values>
                                 </properties>
                             </properties>

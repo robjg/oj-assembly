@@ -18,22 +18,21 @@
                             </fileset>
                         </path>
                         <path id="sourcepath">
-                            <pathelement location="${global.projDir}/arooa/build/src"/>
-                            <pathelement location="${global.projDir}/run-oddjob/build/src"/>
-                            <pathelement location="${global.projDir}/oddjob/build/src"/>
-                            <pathelement location="${global.projDir}/oj-ant/build/src/"/>
-                            <pathelement location="${global.projDir}/oj-hsql/build/src/"/>
-                            <pathelement location="${global.projDir}/oj-mail/build/src/"/>
-                            <pathelement location="${global.projDir}/oj-net/build/src/"/>
-                            <pathelement location="${global.projDir}/oj-web/build/src/"/>
-                            <pathelement location="${global.projDir}/oj-ssh/build/src/"/>
+                            <pathelement location="${global.projDir}/arooa/src/main/java"/>
+                            <pathelement location="${global.projDir}/run-oddjob/src/main/java"/>
+                            <pathelement location="${global.projDir}/oddjob/src/main/java"/>
+                            <pathelement location="${global.projDir}/oj-ant/src/main/java"/>
+                            <pathelement location="${global.projDir}/oj-mail/src/main/java"/>
+                            <pathelement location="${global.projDir}/oj-net/src/main/java"/>
+                            <pathelement location="${global.projDir}/oj-web/src/main/java"/>
+                            <pathelement location="${global.projDir}/oj-ssh/src/main/java"/>
                         </path>
                         <path id="tagletpath">
-                            <pathelement location="${global.projDir}/oj-doc/build/classes"/>
+                            <pathelement location="${global.projDir}/oj-doc/target/classes"/>
                             <path refid="classpath"/>
                             <pathelement location="${global.projDir}/arooa/src/test/java"/>
                             <dirset dir="${global.projDir}">
-                                <include name="*/build/test-classes"/>
+                                <include name="*/target/test-classes"/>
                             </dirset>
                         </path>
                         <mkdir dir="${allants.dist.bin.dir}/docs/api"/>

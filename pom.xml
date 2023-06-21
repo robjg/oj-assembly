@@ -41,6 +41,7 @@
     <module>../oj-web</module>
     <module>../oj-ant</module>
     <module>../oj-mail</module>
+    <module>../oj-net</module>
     <module>../oj-ssh</module>
     <module>../oj-resolve</module>
     <module>../oj-examples</module>

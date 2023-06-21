@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<oddjob id="oddjob">
+    <job>
+        <java className="org.codehaus.plexus.classworlds.launcher.Launcher" dir="${oddjob.assemble.project}" name="${each.current} Maven ${oddjob.assemble.target}" programArgs="${oddjob.assemble.target}" vmArgs="-Dclassworlds.conf=${maven.home}/bin/m2.conf -Dmaven.home=${maven.home}  -Dlibrary.jansi.path=${maven.home}/lib/ansi-native -Dmaven.multiModuleProjectDirectory=${oddjob.assemble.project}">
+            <classPath>
+                <files files="${maven.home}/boot/*.jar"/>
+            </classPath>
+        </java>
+    </job>
+</oddjob>

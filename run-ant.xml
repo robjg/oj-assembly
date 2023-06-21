@@ -1,0 +1,19 @@
+<oddjob id="oddjob">
+    <job>
+        <ant name="${oddjob.assemble.project} Ant">
+            <tasks>
+                <xml>
+                    <tasks>
+                        <ant antfile="${oddjob.assemble.project}/build.xml" inheritAll="false" target="${oddjob.assemble.target}">
+                            <property name="dist.src.dir" value="${allants.dist.src.dir}"/>
+                            <property name="dist.bin.dir" value="${allants.dist.bin.dir}"/>
+                        </ant>
+                    </tasks>
+                </xml>
+            </tasks>
+            <output>
+                <stdout/>
+            </output>
+        </ant>
+    </job>
+</oddjob>

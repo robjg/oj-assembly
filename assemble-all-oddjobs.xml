@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<oddjob id="oddjob">
+    <job>
+        <sequential>
+            <jobs>
+                <foreach name="For Each Project">
+                    <values>
+                        <tokenizer text="${assembly.projects}"/>
+                    </values>
+                    <configuration>
+                        <inline>
+                            <foreach id="each">
+                                <job>
+                                    <oddjob file="${global.projDir}/${each.current}/oj-assemble.xml" name="${each.current} Assemble Oddjob ${oddjob.assemble.target}">
+                                        <properties>
+                                            <properties>
+                                                <values>
+                                                    <file file="${global.projDir}/${each.current}" key="oddjob.assemble.project"/>
+                                                </values>
+                                            </properties>
+                                        </properties>
+                                    </oddjob>
+                                </job>
+                            </foreach>
+                        </inline>
+                    </configuration>
+                </foreach>
+            </jobs>
+        </sequential>
+    </job>
+</oddjob>

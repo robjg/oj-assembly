@@ -1,6 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <oddjob id="oddjob">
     <job>
-        <ant name="${oddjob.assemble.project} Ant">
+        <ant name="Run Ant ${oddjob.assemble.target}">
             <tasks>
                 <xml>
                     <tasks>

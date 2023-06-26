@@ -1,9 +1,5 @@
 <project basedir="." name="Oddball Assembly">
 
-    <taskdef resource="org/apache/ivy/ant/antlib.xml"
-                     uri="antlib:org.apache.ivy.ant" 
-        classpath="../oj-assembly/antlibs/ivy-2.5.0.jar"/>
-	
 	<!-- =================================================================== -->
 	<!-- Initialization target                                               -->
 	<!-- =================================================================== -->
@@ -21,10 +17,10 @@
 		<property name="name"     value="oj-assembly"/>
 
 		<echo message="--------------------------------------------------------------"/>
-		<echo message="            ${Name} ${build.version}                           "/>
+		<echo message="            ${Name} ${build.version}                          "/>
 		<echo message="--------------------------------------------------------------"/>
-		<echo message="Building with ${ant.version}"/>
-		<echo message="using build file ${ant.file}"/>
+		<echo message="Building with ${ant.version}                                  "/>
+		<echo message="using build file ${ant.file}                                  "/>
 		<echo message="--------------------------------------------------------------"/>
 
 	</target>
@@ -36,10 +32,6 @@
           description="Prepares the source distribution">
 
 		<property name="to.dir" value="${dist.src.dir}/${name}"/>
-
-		<copy todir="${to.dir}/antlibs">
-			<fileset dir="antlibs"/>
-		</copy>
 
 		<copy todir="${to.dir}">
 			<fileset dir=".">
@@ -68,16 +60,7 @@
 	<!-- =================================================================== -->
 	
 	<target name="clean" depends="init" description="Empty Standard Target.">
-		
-		<!-- Fails because jar is used by assembly itself. When updating version
-		     manual cleanup required.
-        <delete>
-            <fileset dir="${lib.dir}">
-                 <include name="*.jar"/>
-            </fileset>
-        </delete>
-        -->
-		
+
 	</target>
 
 </project>

@@ -1,10 +1,5 @@
 <oddjob>
     <job>
-        <sequential>
-            <jobs>
-                <exists file="${oddjob.assemble.home}/run-ant.xml"/>
-                <oddjob file="${oddjob.assemble.home}/run-ant.xml"/>
-            </jobs>
-        </sequential>
+        <echo>Nothing to do</echo>
     </job>
 </oddjob>

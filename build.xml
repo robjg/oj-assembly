@@ -1,5 +1,4 @@
-<project xmlns:ivy="antlib:org.apache.ivy.ant"
-	basedir="." name="Oddball Assembly">
+<project basedir="." name="Oddball Assembly">
 
     <taskdef resource="org/apache/ivy/ant/antlib.xml"
                      uri="antlib:org.apache.ivy.ant" 
@@ -21,63 +20,15 @@
 		<property name="Name"     value="Oddjob Assembly"/>
 		<property name="name"     value="oj-assembly"/>
 
-		<property name="oddjob.src"          value="../oddjob"/>
-		
-        <property name="lib.dir"      value="./lib"/>
-        	
 		<echo message="--------------------------------------------------------------"/>
-		<echo message="            ${Name} ${build.version}                                "/>
+		<echo message="            ${Name} ${build.version}                           "/>
 		<echo message="--------------------------------------------------------------"/>
 		<echo message="Building with ${ant.version}"/>
 		<echo message="using build file ${ant.file}"/>
-		<echo message="oddjob.src is ${oddjob.src}"/>
 		<echo message="--------------------------------------------------------------"/>
 
 	</target>
 
-    <!-- =================================================================== -->
-    <!-- Prepare for the build                                               -->
-    <!-- =================================================================== -->
-    
-    <target name="prepare" depends="init">
-
-        <ivy:retrieve conf="default"/>
-
-    </target>
-
-	<!-- =================================================================== -->
-	<!-- Creates the jar file                                                -->
-	<!-- =================================================================== -->
-	<target name="jar" depends="prepare" description="Empty Standard Target.">
-		
-		<echo message="Nothing to do."/>
-		
-	</target>
-
-	<!-- =================================================================== -->
-	<!-- Test targets                                                       -->
-	<!-- =================================================================== -->
-	
-
-	<target name="compile-tests" description="Empty Standard Target.">
-
-		<echo message="Nothing to do."/>
-		
-	</target>
-	
-	<target name="all-tests" description="Empty Standard Target.">
-
-		<echo message="Nothing to do."/>
-		
-	</target>
-		
-	<!-- =================================================================== -->
-	<!-- Publish the jars in local ivy                                       -->
-	<!-- =================================================================== -->
-	<target name="install" depends="jar">
-		
-	</target>
-		
 	<!-- =================================================================== -->
 	<!-- Prepares the source distribution                                    -->
 	<!-- =================================================================== -->

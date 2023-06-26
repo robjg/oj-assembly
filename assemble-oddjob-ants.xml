@@ -3,21 +3,6 @@
     <job>
         <sequential name="${thisant.target} Ants">
             <jobs>
-                <bean class="org.oddjob.util.ClassLoaderDiagnostics" className="com.sun.tools.javac.Main" id="find-tools" name="Find tools.jar in Class Path">
-                    <classLoader>
-                        <value value="${classpath-test-ant.classLoader}"/>
-                    </classLoader>
-                </bean>
-                <check name="Check tools.jar is on Class Path" value="${find-tools.location}"/>
-                <ant id="classpath-test-ant" classPath="${vars.path}" name="Classpath Test Ant">
-                    <tasks>
-                        <xml>
-                            <tasks>
-                                <echo message="Checking Ant Classpath..."/>
-                            </tasks>
-                        </xml>
-                    </tasks>
-                </ant>
                 <foreach file="${this.dir}/assemble-ants-foreach.xml" name="For Each Project">
                     <values>
                         <tokenizer text="${assembly.projects}"/>

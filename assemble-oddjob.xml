@@ -85,30 +85,6 @@
                 <oddjob file="${this.dir}/assemble-javadoc.xml" id="build-javadoc" name="Build Javadoc"/>
                 <oddjob file="${this.dir}/assemble-reference.xml" id="build-reference" name="Build Reference"/>
                 <oddjob file="${this.dir}/assemble-archives.xml" id="assemble-archives" name="Assemble Archives"/>
-                <folder>
-                    <jobs>
-                        <oddjob file="${this.dir}/assemble-oddjob-ants.xml" id="run-jar" name="Just The Jars">
-                            <properties>
-                                <properties>
-                                    <values>
-                                        <value key="thisant.target" value="jar"/>
-                                    </values>
-                                </properties>
-                            </properties>
-                        </oddjob>
-                        <ant classPath="${vars.path}" name="Single Ant Test">
-                            <tasks>
-                                <xml>
-                                    <tasks>
-                                        <ant antfile="${global.projDir}/arooa/build.xml" inheritAll="false" target="single-test">
-                                            <property name="junit.test" value="org.oddjob.arooa.runtime.ScriptEvaluatorTest"/>
-                                        </ant>
-                                    </tasks>
-                                </xml>
-                            </tasks>
-                        </ant>
-                    </jobs>
-                </folder>
             </jobs>
         </sequential>
     </job>

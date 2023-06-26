@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <foreach id="each">
     <job>
-        <ant classPath="${vars.path}" name="${each.current} Ant">
+        <ant name="${each.current} Ant">
             <tasks>
                 <xml>
                     <tasks>

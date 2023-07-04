@@ -28,7 +28,6 @@
                             <pathelement location="${global.projDir}/oj-net/src/main/java"/>
                             <pathelement location="${global.projDir}/oj-web/src/main/java"/>
                             <pathelement location="${global.projDir}/oj-ssh/src/main/java"/>
-                            <pathelement location="${global.projDir}/oj-aws/src/main/java"/>
                         </path>
 
                         <!--  Tests required for resources.

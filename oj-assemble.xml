@@ -1,5 +1,5 @@
 <oddjob>
     <job>
-        <echo>Nothing to do</echo>
+        <state:flag name="Ignore ${oddjob.assemble.target}" xmlns:state="http://rgordon.co.uk/oddjob/state"/>
     </job>
 </oddjob>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <oddjob id="this">
     <job>
-        <sequential name="Assembley Sequence">
+        <sequential name="Assembly Sequence">
             <jobs>
                 <properties name="Load Version File">
                     <input>
@@ -10,7 +10,7 @@
                 </properties>
                 <properties id="assemble-properties" name="Assemble Properties">
                     <values>
-                        <value key="assembly.projects" value="oj-parent, arooa, oddjob, run-oddjob, oj-doc, oj-ant, oj-net, oj-mail, oj-ssh, oj-reactjs, oj-web, oj-examples, oj-assembly"/>
+                        <value key="assembly.projects" value="oj-parent, arooa, oddjob, run-oddjob, oj-resolve, oj-doc, oj-ant, oj-net, oj-mail, oj-ssh, oj-reactjs, oj-web, oj-examples, oj-assembly"/>
                         <value key="allants.dist.dir" value="${global.workDir}/ojdist"/>
                         <value key="allants.dist.dir" value="${global.workDir}/ojdist"/>
                         <value key="allants.dist.target" value="${global.workDir}/ojdist"/>
@@ -27,11 +27,11 @@
                         <file file="${allants.dist.dir}"/>
                     </files>
                 </delete>
-                <oddjob file="${this.dir}/assemble-oddjob-ants.xml" id="run-clean" name="Clean">
+                <oddjob file="${this.dir}/assemble-all-oddjobs.xml" id="assemble-all-clean" name="Assemble All Clean">
                     <properties>
                         <properties>
                             <values>
-                                <value key="thisant.target" value="clean"/>
+                                <value key="oddjob.assemble.target" value="clean"/>
                             </values>
                         </properties>
                     </properties>
@@ -57,6 +57,15 @@
                         <properties>
                             <values>
                                 <value key="oddjob.assemble.target" value="${default.build.target}"/>
+                            </values>
+                        </properties>
+                    </properties>
+                </oddjob>
+                <oddjob file="${this.dir}/assemble-all-oddjobs.xml" id="assemble-all-reference" name="Assemble All Reference">
+                    <properties>
+                        <properties>
+                            <values>
+                                <value key="oddjob.assemble.target" value="javadoc:javadoc@reference"/>
                             </values>
                         </properties>
                     </properties>

@@ -43,7 +43,7 @@
 
                         <mkdir dir="${allants.dist.bin.dir}/docs/reference"/>
 
-                        <javadoc additionalparam="--ignore-source-errors"
+                        <javadoc additionalparam="--ignore-source-errors -link ../api -link https://docs.oracle.com/en/java/javase/11/docs/api"
                                  packagenames="org.oddjob.*"
                                  sourcepathref="sourcepath"
                                  destdir="${allants.dist.bin.dir}/docs/reference"

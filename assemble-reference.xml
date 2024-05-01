@@ -23,6 +23,7 @@
                             <pathelement location="${global.projDir}/arooa/src/main/java"/>
                             <pathelement location="${global.projDir}/run-oddjob/src/main/java"/>
                             <pathelement location="${global.projDir}/oddjob/src/main/java"/>
+                            <pathelement location="${global.projDir}/oj-resolve/src/main/java"/>
                             <pathelement location="${global.projDir}/oj-ant/src/main/java"/>
                             <pathelement location="${global.projDir}/oj-mail/src/main/java"/>
                             <pathelement location="${global.projDir}/oj-net/src/main/java"/>

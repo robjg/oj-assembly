@@ -3,6 +3,7 @@
     <job>
         <sequential name="Assembly Sequence">
             <jobs>
+                <properties environment="env" name="Load Env"/>
                 <properties name="Load Version File">
                     <input>
                         <file file="${this.dir}/version.properties"/>
@@ -18,7 +19,7 @@
                         <value key="allants.dist.src.dir" value="${allants.dist.dir}/source/oddjob-src"/>
                         <value key="allants.dist.bin.dir" value="${allants.dist.dir}/bin/oddjob"/>
                         <value key="default.build.target" value="install"/>
-                        <file file="c:/users/rob/java/apache-maven-3.9.2" key="maven.home"/>
+                        <file file="${env.MAVEN_HOME}" key="maven.home"/>
                         <file file="${global.projDir}/oj-assembly" key="oddjob.assemble.home"/>
                     </values>
                 </properties>

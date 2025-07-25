@@ -1,0 +1,26 @@
+<oddjob id="oddjob">
+    <job>
+        <sequential>
+            <jobs>
+                <resolve:resolve id="resolveOjAnt" xmlns:resolve="oddjob:resolve">
+                    <dependencies>
+                        <resolve:dependency coords="uk.co.rgordon:oj-ant:1.7.0-SNAPSHOT"/>
+                    </dependencies>
+                </resolve:resolve>
+                <oddjob file="${oddjob.dir}/../oddjob/oddjob.xml">
+                    <descriptorFactory>
+                        <oddballs>
+                            <oddballs>
+                                <oddball>
+                                    <paths>
+                                        <value value="${resolveOjAnt.resolvedPathsArray}"/>
+                                    </paths>
+                                </oddball>
+                            </oddballs>
+                        </oddballs>
+                    </descriptorFactory>
+                </oddjob>
+            </jobs>
+        </sequential>
+    </job>
+</oddjob>

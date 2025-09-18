@@ -52,7 +52,8 @@
                                  classpathref="classpath"
                                  doclet="org.oddjob.doc.doclet.ReferenceDoclet"
                                  access="private"
-                                 failonerror="true">
+                                 failonerror="true"
+                                 useexternalfile="true">
                         </javadoc>
 
                     </tasks>
